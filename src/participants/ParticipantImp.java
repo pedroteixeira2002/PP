@@ -104,7 +104,5 @@ public abstract class ParticipantImp implements Participant {
     @Override
     public boolean equals(Object participant) {
         return true;
-
     }
-
 }

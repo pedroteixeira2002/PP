@@ -9,12 +9,10 @@ import ma02_resources.project.Task;
 import ma02_resources.project.exceptions.IllegalNumberOfTasks;
 import ma02_resources.project.exceptions.TaskAlreadyInProject;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class EditionImp implements Edition {
     private static final int SIZE = 10;
@@ -148,7 +146,7 @@ public class EditionImp implements Edition {
 
         Template template = read.readTemplate(this.start, this.projectTemplate);
         Task[] tasks = template.getTasks();
-        Project project = new ProjectImp(name, description, tasks.length, (int)template.getNumber_of_students(), (int)template.getNumber_of_partners(), (int)template.getNumber_of_facilitators(), tags);
+        Project project = new ProjectImp(name, description, tasks.length, (int) template.getNumber_of_students(), (int) template.getNumber_of_partners(), (int) template.getNumber_of_facilitators(), tags);
         for (Task task : tasks) {
             try {
                 project.addTask(task);
@@ -193,7 +191,7 @@ public class EditionImp implements Edition {
         for (int i = 0; i < numberOfProjects; i++) {
             temp[i] = this.projects[i];
         }
-        this.projects = temp;
+        this.projects = temp.clone();
     }
 
     /**
@@ -284,4 +282,20 @@ public class EditionImp implements Edition {
                 "\nThe Edition is: " + (completedTasks * 100) / countTasks + "% completed");
     }
 
+    /**
+     * this method gives the information of the edition
+     *
+     * @return the information
+     */
+    @Override
+    public String toString() {
+        return "\n---------------------Edition-------------------" +
+                "\n Name: " + name +
+                "\n Start Date: " + start +
+                "\n End Date: " + end +
+                "\n Status: " + status +
+                "\n Number Of Projects: " + numberOfProjects +
+                "\n Projects: " + Arrays.toString(projects) +
+                "\n---------------------------------------------";
+    }
 }

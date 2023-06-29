@@ -58,4 +58,13 @@ public class SubmissionImp implements Submission {
     public int compareTo(Submission submission) {
         return this.date.compareTo(submission.getDate());
     }
+
+    @Override
+    public String toString() {
+        return  "\n--------Submission--------" +
+                "\n Date: " + date +
+                "\n Student: " + student.getName() +
+                "\n Text: " + text +
+                "\n--------------------------";
+    }
 }

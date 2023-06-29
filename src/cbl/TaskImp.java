@@ -4,9 +4,10 @@ import ma02_resources.project.Submission;
 import ma02_resources.project.Task;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Objects;
 
-public class TaskImp implements Task{
+public class TaskImp implements Task {
     private static int SIZE = 10;
     private final int FACTOR = 2;
     private String title;
@@ -20,13 +21,14 @@ public class TaskImp implements Task{
 
     /**
      * constructor of the class
+     *
      * @param EditionStart the start date of the edition
-     * @param title the title of the task
-     * @param description the description of the task
-     * @param start the start date of the task
-     * @param duration the duration of the task
+     * @param title        the title of the task
+     * @param description  the description of the task
+     * @param start        the start date of the task
+     * @param duration     the duration of the task
      */
-    public TaskImp(LocalDate EditionStart, String title, String description, int start,  int duration) {
+    public TaskImp(LocalDate EditionStart, String title, String description, int start, int duration) {
         this.title = title;
         this.description = description;
         this.start = EditionStart.plusDays(start);
@@ -36,8 +38,22 @@ public class TaskImp implements Task{
         this.submissions = new Submission[SIZE];
         this.numberOfSubmissions = 0;
     }
+
+    public TaskImp(String title, String description, LocalDate start, LocalDate end, int duration) {
+        this.title = title;
+        this.description = description;
+        this.start = start;
+        this.end = end;
+        this.duration = duration;
+        this.submissions = new Submission[SIZE];
+        this.numberOfSubmissions = 0;
+        this.extendDeadline = 0;
+
+    }
+
     /**
      * this method return the start date of the task
+     *
      * @return the start date of the task
      */
     @Override
@@ -47,6 +63,7 @@ public class TaskImp implements Task{
 
     /**
      * this method return the end date of the task
+     *
      * @return the end date of the task
      */
     @Override
@@ -56,6 +73,7 @@ public class TaskImp implements Task{
 
     /**
      * this method return the duration of the task
+     *
      * @return the duration of the task
      */
     @Override
@@ -65,6 +83,7 @@ public class TaskImp implements Task{
 
     /**
      * this method return the title of the task
+     *
      * @return
      */
     @Override
@@ -74,6 +93,7 @@ public class TaskImp implements Task{
 
     /**
      * this method return the description of the task
+     *
      * @return the description of the task
      */
     @Override
@@ -83,6 +103,7 @@ public class TaskImp implements Task{
 
     /**
      * this method return the submission of the task
+     *
      * @return the submission of the task
      */
     @Override
@@ -92,6 +113,7 @@ public class TaskImp implements Task{
 
     /**
      * this method return the number of submissions of the task
+     *
      * @return the number of submissions of the task
      */
     @Override
@@ -101,6 +123,7 @@ public class TaskImp implements Task{
 
     /**
      * this method add a submission to the task
+     *
      * @param submission the submission to be added
      * @throws IllegalArgumentException if the submission is null or if the submission already exists
      */
@@ -140,6 +163,7 @@ public class TaskImp implements Task{
 
     /**
      * this method check if the submission already exists
+     *
      * @param submission the submission to be checked
      * @throws IllegalArgumentException if the submission already exists
      */
@@ -153,6 +177,7 @@ public class TaskImp implements Task{
 
     /**
      * this method return the extenddeadline of the task
+     *
      * @return the extenddeadline of the task
      */
     @Override
@@ -166,6 +191,7 @@ public class TaskImp implements Task{
 
     /**
      * this method compare two tasks
+     *
      * @param task the object to be compared.
      * @return
      */
@@ -176,6 +202,7 @@ public class TaskImp implements Task{
 
     /**
      * this method check if two tasks are equal
+     *
      * @param obj the object to be compared.
      * @return true if the tasks are equal, false otherwise
      */
@@ -196,19 +223,20 @@ public class TaskImp implements Task{
 
     /**
      * this method return the string representation of the task
+     *
      * @return the string representation of the task
      */
     @Override
     public String toString() {
-        return "\n -------Task-------" +
+        return  "\n -------Task-------" +
                 "\n Title: " + title +
                 "\n Description: " + description +
                 "\n Start: " + start +
                 "\n End: " + end +
                 "\n Duration: " + duration +
                 "\n Deadline extended by " + extendDeadline + " days" +
-                "\n Submissions: " + submissions +
-                "\n Number Of Submissions: " + numberOfSubmissions;
+                "\n Number Of Submissions: " + numberOfSubmissions +
+                "\n Submissions: " + Arrays.toString(submissions);
     }
 
 }

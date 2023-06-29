@@ -12,13 +12,13 @@ public class PartnerImp extends ParticipantImp implements Partner {
      * Constructor of the class PartnerImp
      * @param name of the partner
      * @param email of the partner
-     * @param contactImp of the partner
+     * @param contact of the partner
      * @param instituition of the partner
      * @param website of the partner
      * @param vat of the partner
      */
-    public PartnerImp(String name, String email, Contact contactImp, Instituition instituition, String website, String vat) {
-        super(name, email, contactImp, instituition);
+    public PartnerImp(String name, String email, Contact contact, Instituition instituition, String website, String vat) {
+        super(name, email, contact, instituition);
         this.website = website;
         this.vat = vat;
     }

@@ -32,6 +32,7 @@ public class ProjectImp implements Project {
 
     /**
      * constructor of the class
+     *
      * @param name
      * @param description
      * @param maximumNumberOfTasks
@@ -246,7 +247,6 @@ public class ProjectImp implements Project {
      * this method checks if the participant is already in the project
      *
      * @param participant the participant
-     *
      * @return true if the participant is in the project, false otherwise
      */
     private boolean hasParticipant(Participant participant) {
@@ -427,7 +427,7 @@ public class ProjectImp implements Project {
                 "\n Students: " + numberOfStudents + "\t Max. Students: " + maximumNumberOfStudents +
                 "\n Partners: " + numberOfPartners + "\t Max. Partners: " + maximumNumberOfPartners +
                 "\n Facilitators: " + numberOfFacilitators + "\t Max. Facilitators: " + maximumNumberOfFacilitators +
-                "\n Participants: " + Arrays.toString(participants) + Arrays.toString(tasks) +
-                "\n Tags: " + Arrays.toString(tags);
+                "\n Tags: " + Arrays.toString(tags) +
+                "\n Participants: " + Arrays.toString(participants) + Arrays.toString(tasks);
     }
 }
