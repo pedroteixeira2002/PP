@@ -148,7 +148,7 @@ public class EditionImp implements Edition {
 
         Template template = read.readTemplate(this.start, this.projectTemplate);
         Task[] tasks = template.getTasks();
-        Project project = new ProjectImp(name, description, tasks.length, template.getNumber_of_students(), template.getNumber_of_partners(), template.getNumber_of_facilitators(), tags);
+        Project project = new ProjectImp(name, description, tasks.length, (int)template.getNumber_of_students(), (int)template.getNumber_of_partners(), (int)template.getNumber_of_facilitators(), tags);
         for (Task task : tasks) {
             try {
                 project.addTask(task);

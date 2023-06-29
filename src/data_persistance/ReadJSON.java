@@ -30,17 +30,17 @@ public class ReadJSON {
 
     public Template readTemplate(LocalDate editionStart, String path) throws IOException, java.text.ParseException {
 
-        JSONParser parser = new JSONParser();
 
         try {
             Reader reader = new FileReader(path);
-            JSONObject jsonObject = (JSONObject) parser.parse(reader);
+            JSONParser parser = new JSONParser();
+            JSONObject object = (JSONObject) parser.parse(reader);
 
-            int number_of_facilitators = (int) jsonObject.get("number_of_facilitators");
-            int number_of_students = (int) jsonObject.get("number_of_students");
-            int number_of_partners = (int) jsonObject.get("number_of_partners");
+            long number_of_facilitators = (Long) object.get("number_of_facilitators");
+            long number_of_students = (Long) object.get("number_of_students");
+            long number_of_partners = (Long) object.get("number_of_partners");
 
-            JSONArray tasks = (JSONArray) jsonObject.get("tasks");
+            JSONArray tasks = (JSONArray) object.get("tasks");
             Task[] task = new Task[tasks.size()];
 
             for (int i = 0; i < tasks.size(); i++) {
@@ -49,12 +49,12 @@ public class ReadJSON {
 
                 String task_title = (String) taskTmp.get("title");
                 String task_description = (String) taskTmp.get("description");
-                int start_at = (int) taskTmp.get("start_at");
-                int duration = (int) taskTmp.get("duration");
+                long start_at = (Long) taskTmp.get("start_at");
+                long duration = (Long) taskTmp.get("duration");
 
-                task[i] = new TaskImp(editionStart, task_title, task_description, start_at, duration);
+                task[i] = new TaskImp(editionStart, task_title, task_description, (int) start_at, (int) duration);
             }
-            return new Template(number_of_facilitators, number_of_students, number_of_partners, task);
+            return new Template( number_of_facilitators, number_of_students, number_of_partners, task);
 
         } catch (FileNotFoundException exception) {
             System.out.println("File not found");

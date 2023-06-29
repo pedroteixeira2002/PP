@@ -1,9 +1,11 @@
 package cbl;
 
 import Interfaces.Portfolio;
+import exceptions.NoActveEdition;
 import exceptions.SubmissionsUpToDate;
 import ma02_resources.project.Edition;
 import ma02_resources.project.Project;
+import ma02_resources.project.Status;
 import ma02_resources.project.Task;
 
 /**
@@ -54,6 +56,16 @@ public class PortfolioImp implements Portfolio {
             }
         }
     }
+    private int findActiveEdition() throws NoActveEdition {
+        int i = 0;
+        while (i < this.numberOfEditions){
+            if (this.editions[i].getStatus() == Status.ACTIVE) {
+                return i;
+            }
+            i++;
+        }
+        throw new NoActveEdition("No active edition");
+    }
 
     /**
      * this method gets the index of the edition
@@ -83,6 +95,7 @@ public class PortfolioImp implements Portfolio {
         }
         throw new IllegalArgumentException("Edition does not exist");
     }
+
 
     /**
      * this method adds an edition to the portfolio
@@ -128,12 +141,12 @@ public class PortfolioImp implements Portfolio {
      * @return the edition
      * @throws SubmissionsUpToDate if all submissions are up-to-date
      */
-    public Edition allMissingSubmissions() throws SubmissionsUpToDate {
+    public void editionsWithMissingSubmissions() throws SubmissionsUpToDate {
         for (Edition edition : this.editions) {
             for (Project project : edition.getProjects()) {
                 for (Task task : project.getTasks()) {
                     if (task.getNumberOfSubmissions() != project.getNumberOfStudents()) {
-                        return edition;
+                        System.out.println(edition);
                     }
                 }
             }
