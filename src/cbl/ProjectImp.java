@@ -221,6 +221,8 @@ public class ProjectImp implements Project {
     @Override
     public Participant getParticipant(String email) throws IllegalArgumentException {
         for (Participant participant : this.participants) {
+            if (participant == null)
+                throw new IllegalArgumentException("Participant not found");
             if (participant.getEmail().equals(email)) {
                 return participant;
             }
@@ -250,7 +252,11 @@ public class ProjectImp implements Project {
      * @return true if the participant is in the project, false otherwise
      */
     private boolean hasParticipant(Participant participant) {
+        if (participant == null)
+            return false;
         for (Participant p : participants) {
+            if (p == null)
+                return false;
             if (p.equals(participant))
                 return true;
         }
@@ -402,8 +408,10 @@ public class ProjectImp implements Project {
      */
     public String getProgress() {
         int completedTasks = 0;
-        for (int i = 0; i < numberOfTasks; i++) {
-            if (tasks[i].getNumberOfSubmissions() != 0) {
+        for (Task task : this.tasks) {
+            if (task == null)
+                break;
+            if (task.getNumberOfSubmissions() != 0) {
                 completedTasks++;
             }
         }
@@ -411,6 +419,14 @@ public class ProjectImp implements Project {
                 "\nCompleted: " + completedTasks +
                 "\nTotal Tasks: " + numberOfTasks +
                 "\nThe project is: " + (completedTasks * 100) / numberOfTasks + "% completed");
+    }
+
+    public void listTasks() {
+        for (Task task : this.tasks) {
+            if (task != null)
+                break;
+            System.out.println(task.toString());
+        }
     }
 
     /**

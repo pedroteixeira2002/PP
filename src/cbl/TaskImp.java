@@ -189,6 +189,12 @@ public class TaskImp implements Task {
         }
     }
 
+    public void listSubmissions(){
+        for(Submission submission : this.submissions){
+            if (submission != null)
+            System.out.println(submission);
+        }
+    }
     /**
      * this method compare two tasks
      *

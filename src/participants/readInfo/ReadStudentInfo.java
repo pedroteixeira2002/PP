@@ -26,7 +26,7 @@ public class ReadStudentInfo {
         int number = 0;
         do {
             try {
-                System.out.println("Enter the number of students:\n");
+                System.out.println("Enter the number of student:\n");
                 number = readInt();
             } catch (Exception e) {
                 System.err.println(e.getMessage());

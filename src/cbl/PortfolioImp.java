@@ -18,12 +18,20 @@ public class PortfolioImp implements Portfolio {
 
     /**
      * Constructor of class PortfolioImp
-     *
-     * @param numberOfEditions
      */
-    public PortfolioImp(int numberOfEditions) {
+    public PortfolioImp() {
         this.editions = new Edition[SIZE];
-        this.numberOfEditions = numberOfEditions;
+        this.numberOfEditions = 0;
+    }
+
+    /**
+     * this method lists all editions in the portfolio
+     */
+    public void listEditions() {
+        for (Edition edition : this.editions) {
+            if (edition != null)
+                System.out.println(edition);
+        }
     }
 
     /**
@@ -51,14 +59,18 @@ public class PortfolioImp implements Portfolio {
             throw new IllegalArgumentException("Edition is null");
         }
         for (Edition edition1 : this.editions) {
+            if (edition1 == null) {
+                break;
+            }
             if (edition1.equals(edition)) {
                 throw new IllegalArgumentException("Edition already exists");
             }
         }
     }
+
     private int findActiveEdition() throws NoActveEdition {
         int i = 0;
-        while (i < this.numberOfEditions){
+        while (i < this.numberOfEditions) {
             if (this.editions[i].getStatus() == Status.ACTIVE) {
                 return i;
             }
@@ -88,14 +100,13 @@ public class PortfolioImp implements Portfolio {
      * @return the edition
      */
     public Edition getEdition(String name) {
-        for (Edition edition : editions) {
-            if (edition.getName().equals(name)) {
+        for (Edition edition : this.editions) {
+            if (edition.getName().equals(name))
                 return edition;
-            }
         }
         throw new IllegalArgumentException("Edition does not exist");
-    }
 
+    }
 
     /**
      * this method adds an edition to the portfolio
@@ -122,7 +133,7 @@ public class PortfolioImp implements Portfolio {
         Edition that = getEdition(name);
         int index = getIndex(that);
 
-        if (index != -1) {
+        if (index == -1) {
             throw new IllegalArgumentException("Edition does not exist");
         }
         editions[index] = null;
@@ -131,8 +142,52 @@ public class PortfolioImp implements Portfolio {
             editions[i] = editions[i + 1];
         }
         this.numberOfEditions--;
-
+        System.out.println("Edition removed with success");
         return true;
+    }
+
+    private void activeEditionWithLateSubmissions() throws SubmissionsUpToDate {
+        for (Edition edition : this.editions) {
+            if (edition.getStatus().equals(Status.ACTIVE)) {
+                for (Project project : edition.getProjects()) {
+                    if (project == null) {
+                        break;
+                    }
+                    for (Task task : project.getTasks()) {
+                        if (task == null) {
+                            break;
+                        }
+                        if (task.getNumberOfSubmissions() != project.getNumberOfStudents()) {
+                            System.out.println(edition);
+                        }
+                    }
+                }
+            }
+            if (edition == null) {
+                break;
+            }
+        }
+        throw new SubmissionsUpToDate("Active Edition has all submissions up to date");
+    }
+
+
+    public void editionWithMissingSubmission(String editionName) throws SubmissionsUpToDate {
+        Edition edition = getEdition(editionName);
+        for (Project project : edition.getProjects()) {
+            if (project == null) {
+                break;
+            }
+            for (Task task : project.getTasks()) {
+                if (task == null) {
+                    break;
+                }
+                if (task.getNumberOfSubmissions() != project.getNumberOfStudents()) {
+                    System.out.println(edition);
+                }
+            }
+        }
+        throw new SubmissionsUpToDate("All submissions are up to date");
+
     }
 
     /**
@@ -143,8 +198,17 @@ public class PortfolioImp implements Portfolio {
      */
     public void editionsWithMissingSubmissions() throws SubmissionsUpToDate {
         for (Edition edition : this.editions) {
+            if (edition == null) {
+                break;
+            }
             for (Project project : edition.getProjects()) {
+                if (project == null) {
+                    break;
+                }
                 for (Task task : project.getTasks()) {
+                    if (task == null) {
+                        break;
+                    }
                     if (task.getNumberOfSubmissions() != project.getNumberOfStudents()) {
                         System.out.println(edition);
                     }
@@ -153,4 +217,5 @@ public class PortfolioImp implements Portfolio {
         }
         throw new SubmissionsUpToDate("All submissions are up to date");
     }
+
 }

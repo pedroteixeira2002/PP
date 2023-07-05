@@ -13,7 +13,7 @@ import static participants.readInfo.Utils.readLocalDateTime;
 import static participants.readInfo.Utils.readString;
 
 public class ReadSubmissionInfo {
-    protected static Submission readSubmission() {
+    public static Submission readSubmission() {
         LocalDateTime date = readLocalDateTime();
         String text = readText();
         Student student = readStudent();

@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 
 public class TEST {
     public static void main(String[] args) {
-        Edition edition = new EditionImp("ED001", LocalDate.now(), LocalDate.of(2023, 12, 23), "json_files//project_template.json");
+        EditionImp edition = new EditionImp("ED001", LocalDate.now(), LocalDate.of(2023, 12, 23), "json_files//project_template.json");
         Contact cont0 = new ContactImp("Rua Doutor Joaquim Manuel Costa 194", "Gondomar", "Porto", "4420-437", "913844167", "Portugal");
         Instituition i1 = new InstitutionImp("ESTG", cont0, "sa@estg.ipp.pt", InstituitionType.UNIVERSITY, "Escola Superior de Tecnologia e Gestão", "www.estg.ipp.pt");
         Participant p1 = new StudentImp("Pedro Teixeira", "jpedroteixeira59@gmail.com", cont0, i1, 8200489);
@@ -43,9 +43,12 @@ public class TEST {
 
         Project project = edition.getProject("Honda");
         Task[] tasks = project.getTasks();
-        for (Task task:tasks) {
-            task.addSubmission(sub1);
-        }
-        System.out.println(edition);
+        tasks[0].addSubmission(sub1);
+        tasks[1].addSubmission(sub1);
+        System.out.println(edition.getProgress());
+
+
+        System.out.println(((ProjectImp) project).getProgress());
+
     }
 }

@@ -213,6 +213,8 @@ public class EditionImp implements Edition {
             throw new IllegalArgumentException("Project name is empty");
         }
         for (Project project : projects) {
+            if (project == null)
+                throw new IllegalArgumentException("Project not found");
             if (project.getName().equals(s)) {
                 return project;
             }
@@ -231,6 +233,8 @@ public class EditionImp implements Edition {
         int index = 0;
         Project[] array = new Project[20];
         for (Project project : projects) {
+            if (project == null)
+                break;
             if (project.getTags().equals(s)) ;
             array[index] = project;
             index++;
@@ -249,6 +253,8 @@ public class EditionImp implements Edition {
         int index = 0;
         Project[] array = new Project[20];
         for (Project project : projects) {
+            if (project == null)
+                break;
             try {
                 project.getParticipant(s);
             } catch (NullPointerException exception) {
@@ -269,8 +275,12 @@ public class EditionImp implements Edition {
         int completedTasks = 0;
         int countTasks = 0;
 
-        for (Project project : this.getProjects()) {
+        for (Project project : this.projects) {
+            if (project == null)
+                break;
             for (Task task : project.getTasks()) {
+                if (task == null)
+                    break;
                 countTasks++;
                 if (task.getNumberOfSubmissions() != 0) {
                     completedTasks++;
@@ -282,6 +292,13 @@ public class EditionImp implements Edition {
                 "\nThe Edition is: " + (completedTasks * 100) / countTasks + "% completed");
     }
 
+    public void listProjects(){
+        for (Project project : this.projects) {
+            if (project == null)
+                break;
+            System.out.println(project);
+        }
+    }
     /**
      * this method gives the information of the edition
      *

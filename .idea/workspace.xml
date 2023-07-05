@@ -5,93 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="699c11ea-c3ca-4bd6-83d4-b2d3c46b1df1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadProjectInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadSubmissionInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadTaskInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/participants/readInfo/ReadContactInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/participants/readInfo/ReadFacilitatorInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/participants/readInfo/ReadInstitutionInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/participants/readInfo/ReadParticipantInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/participants/readInfo/ReadPartnerInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/participants/readInfo/ReadStudentInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/participants/readInfo/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/menus/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/allclasses-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/allclasses.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/allclasses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/allpackages-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/constant-values.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/deprecated-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/help-doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-11.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-12.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-13.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-14.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-15.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-16.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index-files/index-9.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/Contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/Contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/Facilitator.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/Facilitator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/Instituition.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/Instituition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/InstituitionType.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/InstituitionType.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/Participant.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/Participant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/Partner.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/Partner.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/Student.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/Student.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/Contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/Contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/Facilitator.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/Facilitator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/Instituition.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/Instituition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/InstituitionType.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/InstituitionType.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/Participant.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/Participant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/Partner.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/Partner.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/Student.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/class-use/Student.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/package-use.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/participants/package-use.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/Edition.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/Edition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/Project.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/Project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/Status.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/Status.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/Submission.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/Submission.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/Task.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/Task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/class-use/Edition.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/class-use/Edition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/class-use/Project.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/class-use/Project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/class-use/Status.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/class-use/Status.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/class-use/Submission.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/class-use/Submission.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/class-use/Task.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/class-use/Task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/IllegalNumberOfParticipantType.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/IllegalNumberOfParticipantType.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/IllegalNumberOfTasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/IllegalNumberOfTasks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/InstituitionAlreadyExistException.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/InstituitionAlreadyExistException.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/ParticipantAlreadyInProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/ParticipantAlreadyInProject.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/TaskAlreadyInProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/TaskAlreadyInProject.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/class-use/IllegalNumberOfParticipantType.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/class-use/IllegalNumberOfParticipantType.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/class-use/IllegalNumberOfTasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/class-use/IllegalNumberOfTasks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/class-use/InstituitionAlreadyExistException.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/class-use/InstituitionAlreadyExistException.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/class-use/ParticipantAlreadyInProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/class-use/ParticipantAlreadyInProject.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/class-use/TaskAlreadyInProject.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/class-use/TaskAlreadyInProject.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/package-use.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/exceptions/package-use.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/package-use.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/ma02_resources/project/package-use.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/javadoc/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/libs/javadoc/serialized-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cbl/EditionImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/EditionImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/PortfolioImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/PortfolioImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cbl/ProjectImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/ProjectImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/SubmissionImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/SubmissionImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cbl/TEST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/TEST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cbl/TaskImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/TaskImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/participants/ParticipantImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participants/ParticipantImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/participants/PartnerImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participants/PartnerImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/readInfo/ReadSubmissionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadSubmissionInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/readInfo/ReadTaskInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadTaskInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/participants/readInfo/ReadStudentInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participants/readInfo/ReadStudentInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,29 +42,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Portefolio/PP_ER",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Portefolio/PP_ER&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.cbl.TEST">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="PP_ER" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TEST" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="participants.TEST" />
       <module name="PP_ER" />
@@ -168,6 +100,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.cbl.TEST" />
         <item itemvalue="Application.TEST" />
       </list>
@@ -183,11 +116,20 @@
       <updated>1687892524864</updated>
       <workItem from="1687892526091" duration="3000" />
       <workItem from="1687958274475" duration="16837000" />
-      <workItem from="1688043539847" duration="19027000" />
+      <workItem from="1688043539847" duration="32733000" />
+      <workItem from="1688122660705" duration="20888000" />
+      <workItem from="1688512845147" duration="4356000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="cbl.PortfolioImp" memberName="numberOfEditions" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

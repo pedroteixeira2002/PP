@@ -11,10 +11,12 @@ import static participants.readInfo.Utils.readString;
 public class ReadEditionInfo {
     public static Edition readEdition() {
         String name = readName();
+        System.out.println("Enter the start date:\n");
         LocalDate startDate = readLocalDate();
+        System.out.println("Enter the end date:\n");
         LocalDate endDate = readLocalDate();
         String projectTemplate = readProjectTemplate();
-        return new EditionImp(name, startDate, endDate, projectTemplate);
+        return  new EditionImp(name, startDate, endDate, projectTemplate);
     }
 
     private static String readName() {

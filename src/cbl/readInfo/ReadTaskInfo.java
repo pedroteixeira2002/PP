@@ -11,29 +11,16 @@ public class ReadTaskInfo {
     public static Task readTask() {
         String title = readTitle();
         String description = readDescription();
-
+        System.out.println("Enter the start date:\n");
         LocalDate startDate = readLocalDate();
 
         int duration = readDuration();
 
         LocalDate endDate = startDate.plusDays(duration);
 
-
         return new TaskImp(title, description, startDate, endDate, duration);
     }
 
-    private static int readExtendedDeadline() {
-        int extendedDeadline = 0;
-        do {
-            try {
-                System.out.println("For how many days you want to extend deadline:\n");
-                extendedDeadline = readInt();
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-        } while (extendedDeadline == 0);
-        return extendedDeadline;
-    }
 
     private static int readDuration() {
         int duration = 0;
@@ -58,7 +45,7 @@ public class ReadTaskInfo {
         String description = null;
         do {
             try {
-                System.out.println("Enter the title:\n");
+                System.out.println("Enter the description:\n");
                 description = readString();
             } catch (Exception e) {
                 System.err.println(e.getMessage());

@@ -1,0 +1,279 @@
+package menus;
+
+import Interfaces.Portfolio;
+import cbl.EditionImp;
+import cbl.PortfolioImp;
+import cbl.ProjectImp;
+import cbl.TaskImp;
+import cbl.readInfo.ReadProjectInfo;
+import cbl.readInfo.ReadSubmissionInfo;
+import cbl.readInfo.ReadTaskInfo;
+import exceptions.SubmissionsUpToDate;
+import ma02_resources.participants.Participant;
+import ma02_resources.project.Edition;
+import ma02_resources.project.Project;
+import ma02_resources.project.Status;
+import ma02_resources.project.Task;
+import ma02_resources.project.exceptions.IllegalNumberOfParticipantType;
+import ma02_resources.project.exceptions.IllegalNumberOfTasks;
+import ma02_resources.project.exceptions.ParticipantAlreadyInProject;
+import ma02_resources.project.exceptions.TaskAlreadyInProject;
+import participants.readInfo.ReadFacilitatorInfo;
+import participants.readInfo.ReadPartnerInfo;
+import participants.readInfo.ReadStudentInfo;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.Arrays;
+import java.util.Scanner;
+
+import static cbl.readInfo.ReadEditionInfo.readEdition;
+import static participants.readInfo.Utils.readInt;
+import static participants.readInfo.Utils.readString;
+
+
+public class Menu {
+    /**
+     * this method is responsible for getting the option chosen by the user
+     *
+     * @return the option chosen by the user
+     */
+    private int getOption() {
+        int option;
+        Scanner scanner = new Scanner(System.in);
+        option = scanner.nextInt();
+        return option;
+    }
+
+    /**
+     * this method is responsible for displaying the menu of the edition
+     */
+    private void displayMainMenu() {
+        System.out.println("\n___________Welcome to the Main Menu_____________");
+        System.out.println("\n| 1 - Create Edition                            |");
+        System.out.println("\n| 2 - Remove Edition                            |");
+        System.out.println("\n| 3 - List Editions                             |");
+        System.out.println("\n| 4 - Manipulate Edition                        |");
+        System.out.println("\n| 5 - Editions with late submissions in Projects|");
+        System.out.println("\n| 0 - Exit                                      |");
+        System.out.println("\n-------------------------------------------------");
+    }
+
+
+    public void mainMenu() throws IOException, ParseException, TaskAlreadyInProject, IllegalNumberOfTasks, ParticipantAlreadyInProject, IllegalNumberOfParticipantType, SubmissionsUpToDate {
+        PortfolioImp portfolio = new PortfolioImp();
+        boolean isRunning = true;
+        while (isRunning) {
+            displayMainMenu();
+            int option = getOption();
+            switch (option) {
+                case 1:
+                    try {
+                        portfolio.addEdition(readEdition());
+                        System.out.println("Edition created successfully");
+                    } catch (Exception e) {
+                        System.out.println("Edition creation failed");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Enter the name of the edition you want to remove");
+                    portfolio.removeEdition(readString());
+                    break;
+                case 3:
+                    portfolio.listEditions();
+                    break;
+                case 4:
+                    System.out.println("Enter the name of the edition you want to manipulate");
+                    editionMenu(portfolio.getEdition(readString()), portfolio);
+                    break;
+                case 5:
+                    portfolio.editionsWithMissingSubmissions();
+                    break;
+                case 0:
+                    isRunning = false;
+                    break;
+                default:
+                    System.out.println("Invalid option");
+
+            }
+        }
+    }
+
+    private void displayEditionMenu() {
+        System.out.println("\n_______Welcome_to_the_Edition_Manager_Menu____");
+        System.out.println("\n| 1 - Set Edition as Active                  |");
+        System.out.println("\n| 2 - Create new Project for Edition         |");
+        System.out.println("\n| 3 - Remove project from Edition            |");
+        System.out.println("\n| 4 - Manage Project                         |");
+        System.out.println("\n| 5 - Check Edition progress                 |");
+        System.out.println("\n| 6 -                          |");
+        System.out.println("\n| 7 - List Projects                          |");
+        System.out.println("\n| 8 - List Projects by Tag                   |");
+        System.out.println("\n| 9 - List Projects by Participant           |");
+        System.out.println("\n| 0 - Exit                                   |");
+        System.out.println("\n----------------------------------------------");
+    }
+
+    private void editionMenu(Edition edition, Portfolio portfolio) throws IOException, ParseException, TaskAlreadyInProject, IllegalNumberOfTasks, ParticipantAlreadyInProject, IllegalNumberOfParticipantType {
+        EditionImp tempEdition = (EditionImp) edition;
+
+        boolean isRunning = true;
+        while (isRunning) {
+            displayEditionMenu();
+            int option = getOption();
+            switch (option) {
+                case 1:
+
+                    //should enter a function here to set all active editions to inactive before the next command
+                    edition.setStatus(Status.ACTIVE);
+                    System.out.println("Edition set as active");
+                    break;
+                case 2:
+                    if (edition.getStatus().equals(Status.INACTIVE) || edition.getStatus().equals(Status.ACTIVE)) {
+                        edition.addProject(ReadProjectInfo.readName(), ReadProjectInfo.readDescription(), ReadProjectInfo.readTags());
+                    } else
+                        System.out.println("Edition is not illegible for new projects");
+                    break;
+                case 3:
+                    System.out.println("Enter the name of the project you want to remove");
+                    edition.removeProject(readString());
+                    break;
+                case 4:
+                    System.out.println("Enter the name of the project you want to manage");
+                    projectMenu(edition.getProject(readString()));
+                    break;
+                case 5:
+                    System.out.println(tempEdition.getProgress());
+                    break;
+                case 6:
+                    ((EditionImp) edition).listProjects();
+                    break;
+                case 7:
+                    System.out.println("Enter the tag you want to search for");
+                    Project[] temp = edition.getProjectsByTag(readString());
+                    System.out.println(Arrays.toString(temp));
+                    break;
+                case 8:
+                    System.out.println("Enter the name of the participant you want to search for");
+                    edition.getProjectsOf(readString());
+                    break;
+                case 0:
+                    isRunning = false;
+                    break;
+                default:
+                    System.out.println("Invalid option");
+            }
+        }
+    }
+
+    private void displayProjectMenu() {
+        System.out.println("\n____Welcome_to_the_Project_Manager_Menu____");
+        System.out.println("\n| 1 - Add Participant to Project           |");
+        System.out.println("\n| 2 - Remove Participant from Project      |");
+        System.out.println("\n| 3 - Add Task to Project                  |");
+        System.out.println("\n| 4 - List all Tasks of Project            |");
+        System.out.println("\n| 5 - Get project progress                 |");
+        System.out.println("\n| 6 - Get participant                      |");
+        System.out.println("\n| 0 - Exit                                 |");
+        System.out.println("\n--------------------------------------------");
+    }
+
+    private void projectMenu(Project project) throws TaskAlreadyInProject, IllegalNumberOfTasks, IOException, ParticipantAlreadyInProject, IllegalNumberOfParticipantType {
+        ProjectImp projectTemp = (ProjectImp) project;
+        boolean isRunning = true;
+        while (isRunning) {
+            displayProjectMenu();
+            int option = getOption();
+            switch (option) {
+                case 1:
+                    project.addParticipant(participantSelect());
+                    break;
+                case 2:
+                    System.out.println("Enter the name of the participant you want to remove");
+                    project.removeParticipant(readString());
+                    break;
+                case 3:
+                    project.addTask(ReadTaskInfo.readTask());
+                    break;
+                case 4:
+                    ((ProjectImp) project).listTasks();
+                    break;
+                case 5:
+                    System.out.println(projectTemp.getProgress());
+                    break;
+                case 6:
+                    System.out.println("Enter the email of the participant you want to search for");
+                    Participant temp = project.getParticipant(readString());
+                    System.out.println(temp.toString());
+                    break;
+                case 7:
+                    System.out.println("Enter the name of the task you want to manage for");
+                    taskMenu(project.getTask(readString()));
+                    break;
+                case 0:
+                    isRunning = false;
+                    break;
+                default:
+                    System.out.println("Invalid option");
+            }
+        }
+    }
+
+    private Participant participantSelect() {
+        System.out.println("\n Which type of participant do you want to select?");
+        System.out.println("\n  1 - Student");
+        System.out.println("\n  2 - Facilitator");
+        System.out.println("\n  3 - Partner");
+        int option = getOption();
+        boolean isRunning = true;
+        while (isRunning) {
+            switch (option) {
+                case 1:
+                    return ReadStudentInfo.readStudent();
+                case 2:
+                    return ReadFacilitatorInfo.readFacilitator();
+                case 3:
+                    return ReadPartnerInfo.readPartner();
+                default:
+                    System.out.println("Invalid option");
+            }
+        }
+        return null;
+    }
+
+    private void displayTask() {
+        System.out.println("\n____Welcome_to_the_Task_Manager_Menu_____");
+        System.out.println("\n| 1 - Add submission                     |");
+        System.out.println("\n| 2 - Extend Deadline                    |");
+        System.out.println("\n| 3 - Obtain Number of Submissions       |");
+        System.out.println("\n| 4 - List Submissions                   |");
+        System.out.println("\n| 0 - Exit                               |");
+        System.out.println("\n------------------------------------------");
+    }
+
+    private void taskMenu(Task task) {
+        displayTask();
+        int option = getOption();
+        boolean isRunning = true;
+        while (isRunning) {
+            switch (option) {
+                case 1:
+                    task.addSubmission(ReadSubmissionInfo.readSubmission());
+                    break;
+                case 2:
+                    System.out.println("Enter the number of days you want to extend the deadline");
+                    task.extendDeadline(readInt());
+                    break;
+                case 3:
+                    task.getNumberOfSubmissions();
+                    break;
+                case 4:
+                    ((TaskImp) task).listSubmissions();
+                    break;
+                default:
+                    System.out.println("Invalid option");
+            }
+        }
+    }
+
+}
