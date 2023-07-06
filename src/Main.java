@@ -1,3 +1,4 @@
+import exceptions.SubmissionsUpToDate;
 import ma02_resources.project.exceptions.IllegalNumberOfParticipantType;
 import ma02_resources.project.exceptions.IllegalNumberOfTasks;
 import ma02_resources.project.exceptions.ParticipantAlreadyInProject;
@@ -21,6 +22,8 @@ public class Main {
         } catch (ParticipantAlreadyInProject e) {
             throw new RuntimeException(e);
         } catch (IllegalNumberOfParticipantType e) {
+            throw new RuntimeException(e);
+        } catch (SubmissionsUpToDate e) {
             throw new RuntimeException(e);
         }
     }

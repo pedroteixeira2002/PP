@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="699c11ea-c3ca-4bd6-83d4-b2d3c46b1df1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/menus/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/EditionImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/EditionImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/PortfolioImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/PortfolioImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/ProjectImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/ProjectImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/TEST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/TEST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/TaskImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/TaskImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/readInfo/ReadSubmissionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadSubmissionInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/readInfo/ReadTaskInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadTaskInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/participants/readInfo/ReadStudentInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participants/readInfo/ReadStudentInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +39,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Portefolio/PP_ER&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/PP_AF&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -64,7 +53,7 @@
       <recent name="exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.cbl.TEST">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="PP_ER" />
@@ -100,9 +89,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.cbl.TEST" />
         <item itemvalue="Application.TEST" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -119,6 +108,8 @@
       <workItem from="1688043539847" duration="32733000" />
       <workItem from="1688122660705" duration="20888000" />
       <workItem from="1688512845147" duration="4356000" />
+      <workItem from="1688575678620" duration="2130000" />
+      <workItem from="1688650409423" duration="348000" />
     </task>
     <servers />
   </component>
