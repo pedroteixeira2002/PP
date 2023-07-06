@@ -2,7 +2,17 @@ package cbl;
 
 
 import Interfaces.Evaluation;
+import ma02_resources.participants.Participant;
+import ma02_resources.participants.Student;
 import ma02_resources.project.Project;
+import participants.ParticipantImp;
+import participants.StudentImp;
+import participants.readInfo.Utils;
+
+import java.io.IOException;
+
+import static participants.readInfo.Utils.readString;
+
 
 public abstract class EvaluationImp implements Evaluation {
 
@@ -27,4 +37,16 @@ public abstract class EvaluationImp implements Evaluation {
 
     }
 
-}
+    public void selfEvaluation(Project project) throws IOException {
+
+        Participant participant = project.getParticipant(Utils.readString());
+            if (participant instanceof Student) {
+                System.out.println(participant.getName());
+            }
+        }
+
+
+    }
+
+
+
