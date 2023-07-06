@@ -212,6 +212,12 @@ public class ProjectImp implements Project {
     }
 
     /**
+     * this method returns the array of participants of the project
+     */
+    public Participant[] getParticipants(){
+        return this.participants;
+    }
+    /**
      * this method gets the participants of the project by email
      *
      * @param email the email of the participant

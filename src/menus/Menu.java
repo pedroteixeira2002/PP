@@ -8,6 +8,7 @@ import cbl.TaskImp;
 import cbl.readInfo.ReadProjectInfo;
 import cbl.readInfo.ReadSubmissionInfo;
 import cbl.readInfo.ReadTaskInfo;
+import data_persistance.WriteJSON;
 import exceptions.SubmissionsUpToDate;
 import ma02_resources.participants.Participant;
 import ma02_resources.project.Edition;
@@ -276,4 +277,42 @@ public class Menu {
         }
     }
 
+    private void exportMenuDisplay() {
+        System.out.println("\n____Welcome_to_the_Export_Menu_____");
+        System.out.println("\n| 1 - Export to JSON               |");
+        System.out.println("\n| 2 - Export to XML                |");
+        System.out.println("\n| 3 - Export to CSV                |");
+        System.out.println("\n| 4 - Export to all                |");
+        System.out.println("\n| 0 - Exit                         |");
+        System.out.println("\n------------------------------------");
+    }
+
+    private void exportMenu() throws IOException {
+        WriteJSON json = new WriteJSON();
+        boolean isRunning = true;
+        while (isRunning) {
+            displayMainMenu();
+            int option = getOption();
+            switch (option) {
+                case 1:
+                    json.writeJSON();
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+                    
+                    break;
+                case 4:
+                    json.writeJSON();
+                case 0:
+                    isRunning = false;
+                    break;
+                default:
+                    System.out.println("Invalid option");
+
+            }
+        }
+    }
 }
+
