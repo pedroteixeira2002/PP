@@ -10,5 +10,6 @@
     <orderEntry type="library" name="MA02_Resources" level="project" />
     <orderEntry type="library" name="json-simple-1.1.1" level="project" />
     <orderEntry type="library" name="json-simple-1.1.1-javadoc" level="project" />
+    <orderEntry type="library" name="snakeyaml-2.0" level="project" />
   </component>
 </module>
