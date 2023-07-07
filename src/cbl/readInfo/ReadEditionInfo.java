@@ -2,8 +2,10 @@ package cbl.readInfo;
 
 import cbl.EditionImp;
 import ma02_resources.project.Edition;
+import menus.Menu;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 import static participants.readInfo.Utils.readLocalDate;
 import static participants.readInfo.Utils.readString;
@@ -15,8 +17,8 @@ public class ReadEditionInfo {
         LocalDate startDate = readLocalDate();
         System.out.println("Enter the end date:\n");
         LocalDate endDate = readLocalDate();
-        String projectTemplate = readProjectTemplate();
-        return  new EditionImp(name, startDate, endDate, projectTemplate);
+        String projectTemplate = chooseTemplate();
+        return new EditionImp(name, startDate, endDate, projectTemplate);
     }
 
     private static String readName() {
@@ -45,5 +47,31 @@ public class ReadEditionInfo {
             }
         } while (projectTemplate == null);
         return projectTemplate;
+    }
+
+    private static String chooseTemplate() {
+        Menu menu = new Menu();
+        boolean isRunning = true;
+        while (isRunning) {
+            menu.displayChooseTemplate();
+            int option = getOption();
+            switch (option) {
+                case 1:
+                    return "json_files//project_template.json";
+                case 0:
+                    isRunning = false;
+                    break;
+                default:
+                    System.out.println("Invalid option");
+            }
+        }
+        return null;
+    }
+
+    private static int getOption() {
+        int option;
+        Scanner scanner = new Scanner(System.in);
+        option = scanner.nextInt();
+        return option;
     }
 }

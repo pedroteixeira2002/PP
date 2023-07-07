@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="699c11ea-c3ca-4bd6-83d4-b2d3c46b1df1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/json_files/export.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/EvaluationImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/EvaluationImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/PortfolioImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/PortfolioImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/ProjectImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/ProjectImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/TaskImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/TaskImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_persistance/WriteJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_persistance/WriteJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +124,14 @@
     <option name="version" value="3" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="ma02_resources.project.exceptions.ParticipantAlreadyInProject" package="ma02_resources.project.exceptions" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="cbl.PortfolioImp" memberName="numberOfEditions" />

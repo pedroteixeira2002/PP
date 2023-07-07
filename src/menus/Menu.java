@@ -50,14 +50,16 @@ public class Menu {
      * this method is responsible for displaying the menu of the edition
      */
     private void displayMainMenu() {
-        System.out.println("\n___________Welcome to the Main Menu_____________");
-        System.out.println("\n| 1 - Create Edition                            |");
-        System.out.println("\n| 2 - Remove Edition                            |");
-        System.out.println("\n| 3 - List Editions                             |");
-        System.out.println("\n| 4 - Manipulate Edition                        |");
-        System.out.println("\n| 5 - Editions with late submissions in Projects|");
-        System.out.println("\n| 0 - Exit                                      |");
-        System.out.println("\n-------------------------------------------------");
+        System.out.println("\n___________Welcome to the Main Menu_______________");
+        System.out.println("\n| 1 - Create Edition                             |");
+        System.out.println("\n| 2 - Remove Edition                             |");
+        System.out.println("\n| 3 - List Editions                              |");
+        System.out.println("\n| 4 - Manipulate Edition                         |");
+        System.out.println("\n| 5 - Editions with late submissions in Projects |");
+        System.out.println("\n| 6 - Check number of editions                   |");
+        System.out.println("\n| 7 - Save Portfolio                             |");
+        System.out.println("\n| 0 - Exit                                       |");
+        System.out.println("\n--------------------------------------------------");
     }
 
 
@@ -90,6 +92,12 @@ public class Menu {
                 case 5:
                     portfolio.editionsWithMissingSubmissions();
                     break;
+                case 6:
+                    System.out.println("There are " + portfolio.getNumberOfEditions() + "editions!");
+                    break;
+                case 7:
+                    exportMenu(portfolio);
+                    break;
                 case 0:
                     isRunning = false;
                     break;
@@ -107,7 +115,7 @@ public class Menu {
         System.out.println("\n| 3 - Remove project from Edition            |");
         System.out.println("\n| 4 - Manage Project                         |");
         System.out.println("\n| 5 - Check Edition progress                 |");
-        System.out.println("\n| 6 -                          |");
+        System.out.println("\n| 6 - Check number of projects               |");
         System.out.println("\n| 7 - List Projects                          |");
         System.out.println("\n| 8 - List Projects by Tag                   |");
         System.out.println("\n| 9 - List Projects by Participant           |");
@@ -124,8 +132,7 @@ public class Menu {
             int option = getOption();
             switch (option) {
                 case 1:
-
-                    //should enter a function here to set all active editions to inactive before the next command
+                    ((PortfolioImp) portfolio).setAllToInactive();
                     edition.setStatus(Status.ACTIVE);
                     System.out.println("Edition set as active");
                     break;
@@ -147,14 +154,18 @@ public class Menu {
                     System.out.println(tempEdition.getProgress());
                     break;
                 case 6:
+                    System.out.println("There are " + edition.getNumberOfProjects() + "projects!");
+                    break;
+
+                case 7:
                     ((EditionImp) edition).listProjects();
                     break;
-                case 7:
+                case 8:
                     System.out.println("Enter the tag you want to search for");
                     Project[] temp = edition.getProjectsByTag(readString());
                     System.out.println(Arrays.toString(temp));
                     break;
-                case 8:
+                case 9:
                     System.out.println("Enter the name of the participant you want to search for");
                     edition.getProjectsOf(readString());
                     break;
@@ -175,12 +186,12 @@ public class Menu {
         System.out.println("\n| 4 - List all Tasks of Project            |");
         System.out.println("\n| 5 - Get project progress                 |");
         System.out.println("\n| 6 - Get participant                      |");
+        System.out.println("\n| 7 - Manage task                          |");
         System.out.println("\n| 0 - Exit                                 |");
         System.out.println("\n--------------------------------------------");
     }
 
     private void projectMenu(Project project) throws TaskAlreadyInProject, IllegalNumberOfTasks, IOException, ParticipantAlreadyInProject, IllegalNumberOfParticipantType {
-        ProjectImp projectTemp = (ProjectImp) project;
         boolean isRunning = true;
         while (isRunning) {
             displayProjectMenu();
@@ -200,7 +211,7 @@ public class Menu {
                     ((ProjectImp) project).listTasks();
                     break;
                 case 5:
-                    System.out.println(projectTemp.getProgress());
+                    System.out.println(((ProjectImp) project).getProgress());
                     break;
                 case 6:
                     System.out.println("Enter the email of the participant you want to search for");
@@ -253,10 +264,10 @@ public class Menu {
     }
 
     private void taskMenu(Task task) {
-        displayTask();
-        int option = getOption();
         boolean isRunning = true;
         while (isRunning) {
+            displayTask();
+            int option = getOption();
             switch (option) {
                 case 1:
                     task.addSubmission(ReadSubmissionInfo.readSubmission());
@@ -271,40 +282,40 @@ public class Menu {
                 case 4:
                     ((TaskImp) task).listSubmissions();
                     break;
+                case 0:
+                    isRunning = false;
+                    break;
                 default:
                     System.out.println("Invalid option");
             }
         }
     }
 
-    private void exportMenuDisplay() {
+    private void displayExportMenu() {
         System.out.println("\n____Welcome_to_the_Export_Menu_____");
         System.out.println("\n| 1 - Export to JSON               |");
-        System.out.println("\n| 2 - Export to XML                |");
-        System.out.println("\n| 3 - Export to CSV                |");
-        System.out.println("\n| 4 - Export to all                |");
+        System.out.println("\n| 2 - Export to YAML               |");
+        System.out.println("\n| 3 - Export to all                |");
         System.out.println("\n| 0 - Exit                         |");
         System.out.println("\n------------------------------------");
     }
 
-    private void exportMenu() throws IOException {
+    private void exportMenu(PortfolioImp portfolio) throws IOException {
         WriteJSON json = new WriteJSON();
         boolean isRunning = true;
         while (isRunning) {
-            displayMainMenu();
+            displayExportMenu();
             int option = getOption();
             switch (option) {
                 case 1:
-                    json.writeJSON();
+                    json.writeJSON(portfolio);
                     break;
                 case 2:
-
                     break;
                 case 3:
-                    
+                    json.writeJSON(portfolio);
+                    //falta o YAML
                     break;
-                case 4:
-                    json.writeJSON();
                 case 0:
                     isRunning = false;
                     break;
@@ -314,5 +325,14 @@ public class Menu {
             }
         }
     }
+
+    public void displayChooseTemplate() {
+        System.out.println("\n____Welcome_to_the_Template_Menu_____");
+        System.out.println("\n| 1 - Provided Template             |");
+        System.out.println("\n| 0 - Exit                          |");
+        System.out.println("\n------------------------------------");
+    }
+
+
 }
 

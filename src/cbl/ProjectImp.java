@@ -14,6 +14,7 @@ import ma02_resources.project.exceptions.TaskAlreadyInProject;
 import java.util.Arrays;
 
 public class ProjectImp implements Project {
+    private static final int FACTOR = 2;
     private final String name;
     private final String description;
     private int numberOfParticipants;
@@ -194,6 +195,8 @@ public class ProjectImp implements Project {
     @Override
     public Task getTask(String s) {
         for (Task task : this.tasks) {
+            if (task == null)
+                throw new IllegalArgumentException("Task not found");
             if (task.getTitle().equals(s)) {
                 return task;
             }
@@ -214,9 +217,10 @@ public class ProjectImp implements Project {
     /**
      * this method returns the array of participants of the project
      */
-    public Participant[] getParticipants(){
+    public Participant[] getParticipants() {
         return this.participants;
     }
+
     /**
      * this method gets the participants of the project by email
      *
@@ -370,6 +374,18 @@ public class ProjectImp implements Project {
     }
 
     /**
+     * this method expand the tags
+     */
+    private void expandTasks() {
+        Task[] temp = new Task[this.tasks.length * FACTOR];
+
+        for (int i = 0; i < numberOfTasks; i++) {
+            temp[i] = this.tasks[i];
+        }
+        this.tasks = temp;
+    }
+
+    /**
      * this method gets the number of tags of the project
      *
      * @return the number of tags of the project
@@ -377,9 +393,8 @@ public class ProjectImp implements Project {
     @Override
     public void addTask(Task task) throws IllegalNumberOfTasks {
 
-        if (numberOfTasks == maximumNumberOfTasks) {
-            throw new IllegalNumberOfTasks("Maximum number of tasks reached");
-        }
+        if (numberOfTasks == maximumNumberOfTasks)
+            expandTasks();
         try {
             hasTask(task);
         } catch (TaskAlreadyInProject e) {
@@ -429,9 +444,9 @@ public class ProjectImp implements Project {
 
     public void listTasks() {
         for (Task task : this.tasks) {
-            if (task != null)
+            if (task == null)
                 break;
-            System.out.println(task.toString());
+            System.out.println(task);
         }
     }
 

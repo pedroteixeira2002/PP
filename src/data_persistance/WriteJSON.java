@@ -1,5 +1,6 @@
 package data_persistance;
 
+import Interfaces.Portfolio;
 import ma02_resources.project.Project;
 import participants.ParticipantImp;
 import cbl.PortfolioImp;
@@ -24,17 +25,18 @@ public class WriteJSON {
     public WriteJSON() {
     }
 
-    public void writeJSON() throws IOException {
+    public void writeJSON(PortfolioImp portfolioTmp) throws IOException {
 
-        PortfolioImp portfolioTmp = new PortfolioImp();
         JSONObject jsonObject = new JSONObject();
 
         try {
-            FileWriter fileWriter = new FileWriter("\\json_files\\export.json");
+            FileWriter fileWriter = new FileWriter("json_files\\export.json");
 
             JSONArray editionsArray = new JSONArray();
 
             for (Edition editionTmp : portfolioTmp.getEditions()) {
+                if (editionTmp == null)
+                    break;
                 JSONObject edition = new JSONObject();
                 edition.put("name", editionTmp.getName());
                 edition.put("start", editionTmp.getStart().toString());
@@ -45,6 +47,8 @@ public class WriteJSON {
                 JSONArray projectsArray = new JSONArray();
 
                 for (Project projectTmp : editionTmp.getProjects()) {
+                    if (projectTmp == null)
+                        break;
                     JSONObject project = new JSONObject();
                     project.put("name", projectTmp.getName());
                     project.put("description", projectTmp.getDescription());
@@ -55,7 +59,9 @@ public class WriteJSON {
 
                     JSONArray projectParticipantsArray = new JSONArray();
 
-                    for (Participant participantTmp : ((ProjectImp)projectTmp).getParticipants()) {
+                    for (Participant participantTmp : ((ProjectImp) projectTmp).getParticipants()) {
+                        if (participantTmp == null)
+                            break;
                         JSONObject participant = new JSONObject();
                         if (participantTmp instanceof Student) {
                             participant.put("number", ((Student) participantTmp).getNumber());
@@ -82,6 +88,8 @@ public class WriteJSON {
                     JSONArray tagsArray = new JSONArray();
 
                     for (String tagTmp : projectTmp.getTags()) {
+                        if (tagTmp == null)
+                            break;
 
                         tagsArray.add(tagTmp);
                     }
@@ -89,6 +97,8 @@ public class WriteJSON {
                     JSONArray tasksArray = new JSONArray();
 
                     for (Task taskTmp : projectTmp.getTasks()) {
+                        if (taskTmp == null)
+                            break;
                         JSONObject task = new JSONObject();
                         task.put("title", taskTmp.getTitle());
                         task.put("description", taskTmp.getDescription());
@@ -100,6 +110,8 @@ public class WriteJSON {
                         JSONArray submissionsArray = new JSONArray();
 
                         for (Submission submissionTmp : taskTmp.getSubmissions()) {
+                            if (submissionTmp == null)
+                                break;
                             JSONObject submission = new JSONObject();
                             submission.put("date", submissionTmp.getDate().toString());
                             submission.put("student", submissionTmp.getStudent());

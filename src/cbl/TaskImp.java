@@ -191,7 +191,8 @@ public class TaskImp implements Task {
 
     public void listSubmissions(){
         for(Submission submission : this.submissions){
-            if (submission != null)
+            if (submission == null)
+                break;
             System.out.println(submission);
         }
     }

@@ -8,6 +8,8 @@ import ma02_resources.project.Project;
 import ma02_resources.project.Status;
 import ma02_resources.project.Task;
 
+import java.util.IllegalFormatCodePointException;
+
 /**
  * This class represents a portfolio
  */
@@ -170,6 +172,18 @@ public class PortfolioImp implements Portfolio {
         throw new SubmissionsUpToDate("Active Edition has all submissions up to date");
     }
 
+    /**
+     * This method sets all Active editions to Closed.
+     */
+    public void setAllToInactive() {
+        for (Edition edition : this.editions) {
+            if (edition == null)
+                break;
+
+            if (edition.getStatus() == Status.ACTIVE)
+                edition.setStatus(Status.CLOSED);
+        }
+    }
 
     public void editionWithMissingSubmission(String editionName) throws SubmissionsUpToDate {
         Edition edition = getEdition(editionName);
