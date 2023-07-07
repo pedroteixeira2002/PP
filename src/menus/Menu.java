@@ -277,7 +277,7 @@ public class Menu {
                     task.extendDeadline(readInt());
                     break;
                 case 3:
-                    task.getNumberOfSubmissions();
+                    System.out.println(task.getNumberOfSubmissions());
                     break;
                 case 4:
                     ((TaskImp) task).listSubmissions();

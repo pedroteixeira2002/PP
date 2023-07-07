@@ -38,15 +38,19 @@ public abstract class EvaluationImp implements Evaluation {
     }
 
     public void selfEvaluation(Project project) throws IOException {
-
-        Participant participant = project.getParticipant(Utils.readString());
+/*
+        System.out.println("Enter your email: ");
+        String email = readString();
+        Participant participant = project.getParticipant(email);
             if (participant instanceof Student) {
-                System.out.println(participant.getName());
+                for (Participant p : project.getParticipants()) {
+
+                }
             }
         }
 
 
+
+*/
     }
-
-
-
+}

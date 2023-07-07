@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="699c11ea-c3ca-4bd6-83d4-b2d3c46b1df1" name="Changes" comment="" />
+=======
+    <list default="true" id="699c11ea-c3ca-4bd6-83d4-b2d3c46b1df1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json_files/export.json" beforeDir="false" afterPath="$PROJECT_DIR$/json_files/export.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/EvaluationImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/EvaluationImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/Menu.java" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
