@@ -1,29 +1,23 @@
 package cbl;
 
-
-import Interfaces.Evaluation;
 import ma02_resources.participants.Participant;
 import ma02_resources.participants.Student;
 import ma02_resources.project.Project;
-
-import cbl.ProjectImp;
 import participants.readInfo.Utils;
 
 import java.io.IOException;
+import java.util.Scanner;
 
-import static participants.readInfo.Utils.readString;
-
-
-public abstract class EvaluationImp implements Evaluation {
-    private static final int TEAM = 4;
+public class EvaluationImp implements Evaluation {
+    private static final int TEAM_SIZE = 4;
     private double selfGrade;
-    private double[] peerGrade;
+    private double[] peerGrades;
     private Participant student;
     private Project project;
 
-    public EvaluationImp(double selfGrade, double[] peerGrade, Participant student, Project project) {
+    public EvaluationImp(double selfGrade, double[] peerGrades, Participant student, Project project) {
         this.selfGrade = selfGrade;
-        this.peerGrade = new double[TEAM];
+        this.peerGrades = new double[TEAM_SIZE];
         this.student = student;
         this.project = project;
     }
@@ -32,16 +26,16 @@ public abstract class EvaluationImp implements Evaluation {
         this.selfGrade = selfGrade;
     }
 
-    public void setPeerGrade(double[] peerGrade) {
-        this.peerGrade = peerGrade;
+    public void setPeerGrades(double[] peerGrades) {
+        this.peerGrades = peerGrades;
     }
 
     public double getSelfGrade() {
         return selfGrade;
     }
 
-    public double[] getPeerGrade() {
-        return peerGrade;
+    public double[] getPeerGrades() {
+        return peerGrades;
     }
 
     public Participant getStudent() {
@@ -53,25 +47,53 @@ public abstract class EvaluationImp implements Evaluation {
     }
 
     public void selfEvaluation(Project project) throws IOException {
-        System.out.println("Enter the project name: ");
-        String projectName = readString();
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter your email: ");
-        String email = readString();
+        String email = scanner.nextLine();
 
         Participant participant = project.getParticipant(email);
 
         if (participant instanceof Student) {
-            for (Participant p : ((ProjectImp) project).getParticipants()) {
+            for (Participant p : project.getParticipants()) {
                 if (p instanceof Student) {
                     System.out.println("Enter the grade for " + p.getName() + ": ");
-                    setSelfGrade(Utils.readDouble());
+                    double grade = Utils.readDouble();
+                    setSelfGrade(grade);
                 }
             }
         }
     }
 
-    public void peerEvaluation(Project project) {
+    public void peerEvaluation(Project project) throws IOException {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter your email: ");
+        String email = scanner.nextLine();
+
+        Participant participant = project.getParticipant(email);
+
+        System.out.println("Enter the student you want to evaluate: ");
+        String studentName = scanner.nextLine();
+
+        if (participant instanceof Student) {
+            for (Participant p : project.getParticipants()) {
+                if (p instanceof Student && p.getName().equals(studentName)) {
+                    System.out.println("Enter the grade for " + p.getName() + ": ");
+                    double grade = Utils.readDouble();
+                    setPeerGrades(new double[]{grade});
+                }
+            }
+        }
+    }
+
+    public double calculateFinalEvaluation() {
+        double sumGrades = selfGrade;
+
+        for (double grade : peerGrades) {
+            sumGrades += grade;
+        }
+
+        return sumGrades / (peerGrades.length + 1); // Adding 1 to account for the self-grade
     }
 }
