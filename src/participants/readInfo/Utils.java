@@ -35,6 +35,18 @@ public class Utils {
     }
 
     /**
+     * This method returns a double that is read from the keyboard.
+     *
+     * @return The double that was read from the keyboard.
+     */
+    public static double readDouble() {
+        double num;
+        Scanner scanner = new Scanner(System.in);
+        num = scanner.nextDouble();
+        return num;
+    }
+
+    /**
      * This method returns a LocalDate that is read from the keyboard.
      *
      * @return The LocalDate that was read from the keyboard.
