@@ -337,5 +337,11 @@ public class Menu {
     }
 
 
+    public void displayEvaluation(){
+        System.out.println("\n____Welcome_to_the_Evaluation_Menu_____");
+        System.out.println("\n| 1 - Evaluate student                  |");
+        System.out.println("\n| 0 - Exit                              |");
+    }
+
 }
 

@@ -387,7 +387,7 @@ public class ProjectImp implements Project {
     }
 
     /**
-     * this method gets the number of tags of the project
+     * this method gets the number of tasks of the project
      *
      * @return the number of tags of the project
      */
