@@ -15,8 +15,16 @@ public class ReadEditionInfo {
         String name = readName();
         System.out.println("Enter the start date:\n");
         LocalDate startDate = readLocalDate();
-        System.out.println("Enter the end date:\n");
-        LocalDate endDate = readLocalDate();
+        LocalDate endDate;
+        do {
+            System.out.println("Enter the end date:\n");
+            endDate = readLocalDate();
+
+            if (endDate.isBefore(startDate)) {
+                System.out.println("End date cannot be before the start date. Please try again.");
+            }
+        } while (endDate.isBefore(startDate));
+
         String projectTemplate = chooseTemplate();
         return new EditionImp(name, startDate, endDate, projectTemplate);
     }

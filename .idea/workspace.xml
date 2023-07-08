@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="699c11ea-c3ca-4bd6-83d4-b2d3c46b1df1" name="Changes" comment="" />
-=======
     <list default="true" id="699c11ea-c3ca-4bd6-83d4-b2d3c46b1df1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/yaml_files/export.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_files/export.json" beforeDir="false" afterPath="$PROJECT_DIR$/json_files/export.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cbl/EvaluationImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/EvaluationImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/ProjectImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/ProjectImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_persistance/WriteJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_persistance/WriteJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_persistance/WriteYAML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_persistance/WriteYAML.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menus/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/participants/readInfo/ReadContactInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participants/readInfo/ReadContactInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/participants/readInfo/ReadInstitutionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participants/readInfo/ReadInstitutionInfo.java" afterDir="false" />
     </list>
->>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

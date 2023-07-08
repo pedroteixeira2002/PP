@@ -9,6 +9,7 @@ import cbl.readInfo.ReadProjectInfo;
 import cbl.readInfo.ReadSubmissionInfo;
 import cbl.readInfo.ReadTaskInfo;
 import data_persistance.WriteJSON;
+import data_persistance.WriteYAML;
 import exceptions.SubmissionsUpToDate;
 import ma02_resources.participants.Participant;
 import ma02_resources.project.Edition;
@@ -302,6 +303,7 @@ public class Menu {
 
     private void exportMenu(PortfolioImp portfolio) throws IOException {
         WriteJSON json = new WriteJSON();
+        WriteYAML yaml = new WriteYAML();
         boolean isRunning = true;
         while (isRunning) {
             displayExportMenu();
@@ -311,10 +313,11 @@ public class Menu {
                     json.writeJSON(portfolio);
                     break;
                 case 2:
+                    yaml.writeYAML(portfolio);
                     break;
                 case 3:
                     json.writeJSON(portfolio);
-                    //falta o YAML
+                    yaml.writeYAML(portfolio);
                     break;
                 case 0:
                     isRunning = false;

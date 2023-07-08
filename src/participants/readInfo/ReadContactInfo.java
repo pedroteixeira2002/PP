@@ -13,6 +13,7 @@ public class ReadContactInfo {
      * @return a new contact
      */
     protected static Contact readContact() {
+        System.out.println("----------Contact Information----------");
         String street = readStreet();
         String city = readCity();
         String state = readState();

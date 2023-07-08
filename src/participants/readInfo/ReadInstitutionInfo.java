@@ -12,6 +12,7 @@ import static participants.readInfo.Utils.readString;
 
 public class ReadInstitutionInfo {
     protected static Instituition readInstitution() {
+        System.out.println("---------Institution Information---------");
         String name = readName();
         String email = readEmail();
         Contact contact = readContact();

@@ -91,7 +91,7 @@ public class WriteYAML {
             }
         }
 
-        FileWriter writer = new FileWriter("yaml_files/export.yaml");
+        FileWriter writer = new FileWriter("yaml_files//export.yaml");
         writer.write(yamlData.toString());
         writer.close();
 
