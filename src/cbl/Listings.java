@@ -31,7 +31,7 @@ public class Listings {
         Participant studentWithHighestAppreciation = null;
         double highestAppreciation = 0.0;
 
-        Participant[] participants = project.getParticipants();
+        Participant[] participants = ((ProjectImp) project).getParticipants();
 
         for (int i = 0; i < project.getNumberOfParticipants(); i++) {
             Participant participant = participants[i];

@@ -1,23 +1,25 @@
 package cbl;
 
+import Interfaces.Evaluation;
 import ma02_resources.participants.Participant;
 import ma02_resources.participants.Student;
 import ma02_resources.project.Project;
 import participants.readInfo.Utils;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 public class EvaluationImp implements Evaluation {
     private static final int TEAM_SIZE = 4;
     private double selfGrade;
     private double[] peerGrades;
     private Participant student;
+    private String email;
     private Project project;
 
-    public EvaluationImp(double selfGrade, double[] peerGrades, Participant student, Project project) {
+    public EvaluationImp(double selfGrade, Participant student, Project project) {
         this.selfGrade = selfGrade;
         this.peerGrades = new double[TEAM_SIZE];
+        this.email = student.getEmail();
         this.student = student;
         this.project = project;
     }
@@ -46,39 +48,53 @@ public class EvaluationImp implements Evaluation {
         return project;
     }
 
+    /**
+     * this method allows the student to evaluate himself
+     *
+     * @param project the project to evaluate
+     * @throws IOException
+     */
     public void selfEvaluation(Project project) throws IOException {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter your email: ");
-        String email = scanner.nextLine();
-
+        String email = Utils.readString();
         Participant participant = project.getParticipant(email);
 
         if (participant instanceof Student) {
-            for (Participant p : project.getParticipants()) {
-                if (p instanceof Student) {
-                    System.out.println("Enter the grade for " + p.getName() + ": ");
+            for (Participant p : ((ProjectImp) project).getParticipants()) {
+                if (p == null)
+                    break;
+                if (p instanceof Student && p.getEmail().equals(email)) {
+                    System.out.println("Enter your self evaluation: ");
                     double grade = Utils.readDouble();
                     setSelfGrade(grade);
                 }
             }
-        }
+        } else
+            System.out.println("Only students can evaluate themselves");
     }
 
+    /**
+     * This method allows a student to evaluate a teammate
+     *
+     * @param project the project to evaluate
+     * @throws IOException if an error occurs while reading the participant
+     */
     public void peerEvaluation(Project project) throws IOException {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter your email: ");
-        String email = scanner.nextLine();
-
+        String email = Utils.readString();
         Participant participant = project.getParticipant(email);
 
-        System.out.println("Enter the student you want to evaluate: ");
-        String studentName = scanner.nextLine();
+        System.out.println("Enter the email of your team mate: ");
+        String emailTeam = Utils.readString();
+        Participant participantToEvaluate = project.getParticipant(email);
 
-        if (participant instanceof Student) {
-            for (Participant p : project.getParticipants()) {
-                if (p instanceof Student && p.getName().equals(studentName)) {
+
+        if (participant instanceof Student && participantToEvaluate instanceof Student) {
+            for (Participant p : ((ProjectImp) project).getParticipants()) {
+
+                if (p instanceof Student && p.getEmail().equals(emailTeam)) {
                     System.out.println("Enter the grade for " + p.getName() + ": ");
                     double grade = Utils.readDouble();
                     setPeerGrades(new double[]{grade});

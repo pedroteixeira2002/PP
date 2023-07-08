@@ -130,33 +130,13 @@ public class TaskImp implements Task {
      * @param submission the submission to be added
      * @throws IllegalArgumentException if the submission is null or if the submission already exists
      */
+    @Override
     public void addSubmission(Submission submission) throws IllegalArgumentException {
+
         if (submission == null) {
             throw new IllegalArgumentException("Submission is null");
         }
 
-        // Check if the project's edition is active
-        if (!isActiveEdition()) {
-            System.out.println("Cannot add submission. The project's edition is not active.");
-            return;
-        }
-
-        // Access the project participants
-        Student[] projectStudents = getProjectStudents();
-
-        // Check if the submitting participant is a student and belongs to the project
-        if (submission.getParticipant() instanceof Student) {
-            Student submittingStudent = (Student) submission.getParticipant();
-            if (!containsStudent(projectStudents, submittingStudent)) {
-                System.out.println("Cannot add submission. The submitting student is not part of the project.");
-                return;
-            }
-        } else {
-            System.out.println("Cannot add submission. Only students are allowed to submit for this project.");
-            return;
-        }
-
-        // Continue with the submission process
         try {
             hasSubmission(submission);
         } catch (IllegalArgumentException e) {
@@ -219,19 +199,6 @@ public class TaskImp implements Task {
                 break;
             System.out.println(submission);
         }
-    }
-
-    private boolean containsStudent(Student[] students, Student student) {
-        for (Student s : students) {
-            if (s != null && s.equals(student)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isActiveEdition(Edition edition) {
-        return edition.getStatus() == Status.ACTIVE;
     }
 
 

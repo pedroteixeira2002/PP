@@ -20,6 +20,7 @@ import ma02_resources.project.exceptions.IllegalNumberOfParticipantType;
 import ma02_resources.project.exceptions.IllegalNumberOfTasks;
 import ma02_resources.project.exceptions.ParticipantAlreadyInProject;
 import ma02_resources.project.exceptions.TaskAlreadyInProject;
+import participants.StudentImp;
 import participants.readInfo.ReadFacilitatorInfo;
 import participants.readInfo.ReadPartnerInfo;
 import participants.readInfo.ReadStudentInfo;
@@ -138,9 +139,9 @@ public class Menu {
                     System.out.println("Edition set as active");
                     break;
                 case 2:
-                    if (edition.getStatus().equals(Status.INACTIVE) || edition.getStatus().equals(Status.ACTIVE)) {
+                    if (edition.getStatus().equals(Status.INACTIVE) || edition.getStatus().equals(Status.ACTIVE))
                         edition.addProject(ReadProjectInfo.readName(), ReadProjectInfo.readDescription(), ReadProjectInfo.readTags());
-                    } else
+                    else
                         System.out.println("Edition is not illegible for new projects");
                     break;
                 case 3:
@@ -149,7 +150,7 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("Enter the name of the project you want to manage");
-                    projectMenu(edition.getProject(readString()));
+                    projectMenu(edition.getProject(readString()), edition);
                     break;
                 case 5:
                     System.out.println(tempEdition.getProgress());
@@ -192,7 +193,7 @@ public class Menu {
         System.out.println("\n--------------------------------------------");
     }
 
-    private void projectMenu(Project project) throws TaskAlreadyInProject, IllegalNumberOfTasks, IOException, ParticipantAlreadyInProject, IllegalNumberOfParticipantType {
+    private void projectMenu(Project project, Edition edition) throws TaskAlreadyInProject, IllegalNumberOfTasks, IOException, ParticipantAlreadyInProject, IllegalNumberOfParticipantType {
         boolean isRunning = true;
         while (isRunning) {
             displayProjectMenu();
@@ -206,7 +207,19 @@ public class Menu {
                     project.removeParticipant(readString());
                     break;
                 case 3:
-                    project.addTask(ReadTaskInfo.readTask());
+                    if (edition.getStatus().equals(Status.ACTIVE)) {
+                        System.out.println("Enter your email");
+                        String email = readString();
+                        Participant participant = project.getParticipant(email);
+                        for (Participant pTemp : ((ProjectImp) project).getParticipants()) {
+                            if (pTemp == null)
+                                break;
+                            if (pTemp == participant && participant instanceof StudentImp) {
+                                project.addTask(ReadTaskInfo.readTask());
+                            }
+                        }
+                    } else
+                        System.out.println("Edition is not illegible for new tasks");
                     break;
                 case 4:
                     ((ProjectImp) project).listTasks();
@@ -337,10 +350,12 @@ public class Menu {
     }
 
 
-    public void displayEvaluation(){
-        System.out.println("\n____Welcome_to_the_Evaluation_Menu_____");
-        System.out.println("\n| 1 - Evaluate student                  |");
-        System.out.println("\n| 0 - Exit                              |");
+    public void displayEvaluation() {
+        System.out.println("\n____Welcome_to_the_Evaluation_Menu_______");
+        System.out.println("\n| 1 - Evaluate Teammate                  |");
+        System.out.println("\n| 2 - Evaluate Yourself                  |");
+        System.out.println("\n| 0 - Exit                               |");
+        System.out.println("\n-----------------------------------------");
     }
 
 }
