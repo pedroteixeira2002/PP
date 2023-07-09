@@ -58,7 +58,7 @@ public class Menu {
         System.out.println("\n| 5 - Editions with late submissions in Projects |");
         System.out.println("\n| 6 - Check number of editions                   |");
         System.out.println("\n| 7 - Number of done projects                    |");
-        System.out.println("\n| 8 -                            |");
+        System.out.println("\n| 8 - List Evaluations                           |");
         System.out.println("\n| 9 - Save Portfolio                             |");
         System.out.println("\n| 0 - Exit                                       |");
         System.out.println("\n--------------------------------------------------");
@@ -100,6 +100,9 @@ public class Menu {
                     break;
                 case 7:
                     exportMenu(portfolio);
+                    break;
+                case 8:
+                    System.out.println(evaluations);
                     break;
                 case 0:
                     isRunning = false;
@@ -176,6 +179,9 @@ public class Menu {
                 case 10:
                     System.out.println("Enter the name of the participant you want to search for");
                     edition.getProjectsOf(readString());
+                    break;
+                case 11:
+                    ((EditionImp) edition).getProjectWithMostStudents(edition.getProjects());
                     break;
                 case 0:
                     isRunning = false;
