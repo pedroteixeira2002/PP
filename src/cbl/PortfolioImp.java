@@ -234,11 +234,8 @@ public class PortfolioImp implements Portfolio {
     /**
      * This method sets all Active editions to Closed.
      */
-<<<<<<< Updated upstream
     public void setAllToClosed() {
-=======
-    public void setAllToClosed () {
->>>>>>> Stashed changes
+
         for (Edition edition : this.editions) {
             if (edition == null)
                 break;
