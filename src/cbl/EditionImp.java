@@ -334,4 +334,22 @@ public class EditionImp implements Edition {
                 "\n Projects: " + Arrays.toString(projects) +
                 "\n---------------------------------------------";
     }
+    public static Project getProjectWithMostStudents(Project[] projects) {
+        if (projects == null || projects.length == 0) {
+            return null;
+        }
+
+        Project projectWithMostStudents = null;
+        int maxStudents = -1;
+
+        for (Project project : projects) {
+            int numberOfStudents = project.getNumberOfStudents();
+            if (numberOfStudents > maxStudents) {
+                maxStudents = numberOfStudents;
+                projectWithMostStudents = project;
+            }
+        }
+
+        return projectWithMostStudents;
+    }
 }

@@ -57,7 +57,9 @@ public class Menu {
         System.out.println("\n| 4 - Manipulate Edition                         |");
         System.out.println("\n| 5 - Editions with late submissions in Projects |");
         System.out.println("\n| 6 - Check number of editions                   |");
-        System.out.println("\n| 7 - Save Portfolio                             |");
+        System.out.println("\n| 7 - Number of done projects                    |");
+        System.out.println("\n| 8 -                            |");
+        System.out.println("\n| 9 - Save Portfolio                             |");
         System.out.println("\n| 0 - Exit                                       |");
         System.out.println("\n--------------------------------------------------");
     }
@@ -65,7 +67,7 @@ public class Menu {
 
     public void mainMenu() throws IOException, ParseException, TaskAlreadyInProject, IllegalNumberOfTasks, ParticipantAlreadyInProject, IllegalNumberOfParticipantType, SubmissionsUpToDate {
         PortfolioImp portfolio = new PortfolioImp();
-        Evaluations evaluations= new Evaluations();
+        Evaluations evaluations = new Evaluations();
         boolean isRunning = true;
         while (isRunning) {
             displayMainMenu();
@@ -117,14 +119,16 @@ public class Menu {
         System.out.println("\n| 4 - Manage Project                         |");
         System.out.println("\n| 5 - Check Edition progress                 |");
         System.out.println("\n| 6 - Check number of projects               |");
-        System.out.println("\n| 7 - List Projects                          |");
-        System.out.println("\n| 8 - List Projects by Tag                   |");
-        System.out.println("\n| 9 - List Projects by Participant           |");
+        System.out.println("\n| 7 - Projects with missing Submissions      |");
+        System.out.println("\n| 8 - List Projects                          |");
+        System.out.println("\n| 9 - List Projects by Tag                   |");
+        System.out.println("\n| 10 - List Projects by Participant          |");
+        System.out.println("\n| 11 - List Project with most students        |");
         System.out.println("\n| 0 - Exit                                   |");
         System.out.println("\n----------------------------------------------");
     }
 
-    private void editionMenu(Edition edition, Portfolio portfolio, Evaluations evaluations) throws IOException, ParseException, TaskAlreadyInProject, IllegalNumberOfTasks, ParticipantAlreadyInProject, IllegalNumberOfParticipantType {
+    private void editionMenu(Edition edition, Portfolio portfolio, Evaluations evaluations) throws IOException, ParseException, TaskAlreadyInProject, IllegalNumberOfTasks, ParticipantAlreadyInProject, IllegalNumberOfParticipantType, SubmissionsUpToDate {
         EditionImp tempEdition = (EditionImp) edition;
 
         boolean isRunning = true;
@@ -157,16 +161,19 @@ public class Menu {
                 case 6:
                     System.out.println("There are " + edition.getNumberOfProjects() + "projects!");
                     break;
-
                 case 7:
-                    ((EditionImp) edition).listProjects();
+                    System.out.println("Enter the name of the edition you want to check");
+                    ((PortfolioImp)portfolio).editionWithMissingSubmissionInProjects(readString());
                     break;
                 case 8:
+                    ((EditionImp) edition).listProjects();
+                    break;
+                case 9:
                     System.out.println("Enter the tag you want to search for");
                     Project[] temp = edition.getProjectsByTag(readString());
                     System.out.println(Arrays.toString(temp));
                     break;
-                case 9:
+                case 10:
                     System.out.println("Enter the name of the participant you want to search for");
                     edition.getProjectsOf(readString());
                     break;

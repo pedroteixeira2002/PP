@@ -158,24 +158,6 @@ public class PortfolioImp implements Portfolio {
         return num;
     }
 
-    public static Project getProjectWithMostStudents(Project[] projects) {
-        if (projects == null || projects.length == 0) {
-            return null;
-        }
-
-        Project projectWithMostStudents = null;
-        int maxStudents = -1;
-
-        for (Project project : projects) {
-            int numberOfStudents = project.getNumberOfStudents();
-            if (numberOfStudents > maxStudents) {
-                maxStudents = numberOfStudents;
-                projectWithMostStudents = project;
-            }
-        }
-
-        return projectWithMostStudents;
-    }
 
     public String projectProgress(String editionName, String projectName) {
         int pos = find(editionName);
@@ -223,7 +205,7 @@ public class PortfolioImp implements Portfolio {
         return true;
     }
 
-    private void activeEditionWithLateSubmissions() throws SubmissionsUpToDate {
+    private void activeEditionWithLateSubmissionsInProjects() throws SubmissionsUpToDate {
         for (Edition edition : this.editions) {
             if (edition.getStatus().equals(Status.ACTIVE)) {
                 for (Project project : edition.getProjects()) {
@@ -235,9 +217,11 @@ public class PortfolioImp implements Portfolio {
                             break;
                         }
                         if (task.getNumberOfSubmissions() != project.getNumberOfStudents()) {
-                            System.out.println(edition);
+                            System.out.println(project.getName() + " has late submissions");
+                            break;
                         }
                     }
+
                 }
             }
             if (edition == null) {
@@ -250,7 +234,11 @@ public class PortfolioImp implements Portfolio {
     /**
      * This method sets all Active editions to Closed.
      */
+<<<<<<< Updated upstream
     public void setAllToClosed() {
+=======
+    public void setAllToClosed () {
+>>>>>>> Stashed changes
         for (Edition edition : this.editions) {
             if (edition == null)
                 break;
@@ -260,7 +248,7 @@ public class PortfolioImp implements Portfolio {
         }
     }
 
-    public void editionWithMissingSubmission(String editionName) throws SubmissionsUpToDate {
+    public void editionWithMissingSubmissionInProjects(String editionName) throws SubmissionsUpToDate {
         Edition edition = getEdition(editionName);
         for (Project project : edition.getProjects()) {
             if (project == null) {
@@ -271,7 +259,8 @@ public class PortfolioImp implements Portfolio {
                     break;
                 }
                 if (task.getNumberOfSubmissions() != project.getNumberOfStudents()) {
-                    System.out.println(edition);
+                    System.out.println(project);
+                    break;
                 }
             }
         }
@@ -306,5 +295,4 @@ public class PortfolioImp implements Portfolio {
         }
         throw new SubmissionsUpToDate("All submissions are up to date");
     }
-
 }
