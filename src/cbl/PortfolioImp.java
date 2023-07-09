@@ -250,7 +250,7 @@ public class PortfolioImp implements Portfolio {
     /**
      * This method sets all Active editions to Closed.
      */
-    public void setAllToInactive() {
+    public void setAllToClosed() {
         for (Edition edition : this.editions) {
             if (edition == null)
                 break;

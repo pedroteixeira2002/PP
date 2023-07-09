@@ -1,3 +1,14 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
+
 package cbl;
 
 import data_persistance.ReadJSON;
@@ -14,6 +25,9 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Arrays;
 
+/**
+ * This class represents an edition
+ */
 public class EditionImp implements Edition {
     private static final int SIZE = 10;
     private static final int FACTOR = 2;
@@ -26,7 +40,7 @@ public class EditionImp implements Edition {
     private Project[] projects;
 
     /**
-     * constructor of the class
+     * constructor of the class EditionImp
      *
      * @param name            the name of the edition
      * @param start           the start date of the edition
