@@ -1,5 +1,7 @@
 package cbl;
 
+import java.util.Arrays;
+
 public class Evaluations {
     private static final int SIZE = 20;
     private EvaluationImp[] evaluations;
@@ -12,5 +14,12 @@ public class Evaluations {
     public void addEvaluation(EvaluationImp evaluation) {
         this.evaluations[evaluationCount] = evaluation;
         evaluationCount++;
+    }
+
+    @Override
+    public String toString() {
+        return "\n--------- Evaluations ------------" +
+                "\n Evaluations=" + Arrays.toString(evaluations) +
+                "\n EvaluationCount=" + evaluationCount;
     }
 }

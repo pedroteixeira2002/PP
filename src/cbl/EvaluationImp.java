@@ -7,6 +7,7 @@ import ma02_resources.project.Project;
 import participants.readInfo.Utils;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import static participants.readInfo.ReadParticipantInfo.readEmail;
 import static participants.readInfo.Utils.readDouble;
@@ -112,5 +113,16 @@ public class EvaluationImp implements Evaluation {
         finalEvaluation = sumGrades / (peerGrades.length + 1);
 
         return finalEvaluation; // Adding 1 to account for the self-grade
+    }
+
+    @Override
+    public String toString() {
+        return "\n--------- Evaluation ------------" +
+                "\n SelfGrade=" + selfGrade +
+                "\n PeerGrades=" + Arrays.toString(peerGrades) +
+                "\n Student=" + student +
+                "\n Email='" + email + '\'' +
+                "\n Project=" + project +
+                "\n FinalEvaluation=" + finalEvaluation;
     }
 }
