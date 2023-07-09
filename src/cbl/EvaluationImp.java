@@ -8,6 +8,9 @@ import participants.readInfo.Utils;
 
 import java.io.IOException;
 
+import static participants.readInfo.ReadParticipantInfo.readEmail;
+import static participants.readInfo.Utils.readDouble;
+
 public class EvaluationImp implements Evaluation {
     private static final int TEAM_SIZE = 4;
     private double selfGrade;
@@ -15,13 +18,15 @@ public class EvaluationImp implements Evaluation {
     private Participant student;
     private String email;
     private Project project;
+    private double finalEvaluation;
 
-    public EvaluationImp(double selfGrade, Participant student, Project project) {
+    public EvaluationImp(double selfGrade, double[] peerGrades, Project project, String email) {
         this.selfGrade = selfGrade;
-        this.peerGrades = new double[TEAM_SIZE];
-        this.email = student.getEmail();
-        this.student = student;
+        this.peerGrades = peerGrades;
+        this.student = project.getParticipant(email);
+        this.email = email;
         this.project = project;
+        this.finalEvaluation = calculateFinalEvaluation();
     }
 
     public void setSelfGrade(double selfGrade) {
@@ -48,14 +53,23 @@ public class EvaluationImp implements Evaluation {
         return project;
     }
 
+    public EvaluationImp readEvaluationInfo(Project project) throws IOException {
+        double[] peerGrades;
+        String email = readEmail();
+        double selfGrade = selfEvaluation(project);
+        peerGrades = peerEvaluation(project);
+
+        return new EvaluationImp(selfGrade, peerGrades, project, email);
+    }
+
+
     /**
      * this method allows the student to evaluate himself
      *
      * @param project the project to evaluate
      * @throws IOException
      */
-    public void selfEvaluation(Project project) throws IOException {
-
+    public double selfEvaluation(Project project) throws IOException {
         System.out.println("Enter your email: ");
         String email = Utils.readString();
         Participant participant = project.getParticipant(email);
@@ -66,12 +80,12 @@ public class EvaluationImp implements Evaluation {
                     break;
                 if (p instanceof Student && p.getEmail().equals(email)) {
                     System.out.println("Enter your self evaluation: ");
-                    double grade = Utils.readDouble();
-                    setSelfGrade(grade);
+                    double grade = readDouble();
+                    return grade;
                 }
             }
-        } else
-            System.out.println("Only students can evaluate themselves");
+        }
+        throw new IOException("Only students can evaluate themselves");
     }
 
     /**
@@ -80,36 +94,34 @@ public class EvaluationImp implements Evaluation {
      * @param project the project to evaluate
      * @throws IOException if an error occurs while reading the participant
      */
-    public void peerEvaluation(Project project) throws IOException {
-
+    public double[] peerEvaluation(Project project) throws IOException {
+        double[] tempGrades = new double[TEAM_SIZE];
         System.out.println("Enter your email: ");
         String email = Utils.readString();
         Participant participant = project.getParticipant(email);
 
         System.out.println("Enter the email of your team mate: ");
         String emailTeam = Utils.readString();
-        Participant participantToEvaluate = project.getParticipant(email);
-
+        Participant participantToEvaluate = project.getParticipant(emailTeam);
 
         if (participant instanceof Student && participantToEvaluate instanceof Student) {
-            for (Participant p : ((ProjectImp) project).getParticipants()) {
-
-                if (p instanceof Student && p.getEmail().equals(emailTeam)) {
-                    System.out.println("Enter the grade for " + p.getName() + ": ");
-                    double grade = Utils.readDouble();
-                    setPeerGrades(new double[]{grade});
-                }
+            for (int i = 0; i < tempGrades.length; i++) {
+                System.out.println("Student" + (i + 1) + ": Enter the classification: ");
+                tempGrades[i] = readDouble();
             }
         }
+        return tempGrades;
     }
 
     public double calculateFinalEvaluation() {
+        double finalEvaluation = 0;
         double sumGrades = selfGrade;
 
         for (double grade : peerGrades) {
             sumGrades += grade;
         }
+        finalEvaluation = sumGrades / (peerGrades.length + 1);
 
-        return sumGrades / (peerGrades.length + 1); // Adding 1 to account for the self-grade
+        return finalEvaluation; // Adding 1 to account for the self-grade
     }
 }

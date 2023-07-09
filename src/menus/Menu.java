@@ -1,10 +1,7 @@
 package menus;
 
 import Interfaces.Portfolio;
-import cbl.EditionImp;
-import cbl.PortfolioImp;
-import cbl.ProjectImp;
-import cbl.TaskImp;
+import cbl.*;
 import cbl.readInfo.ReadProjectInfo;
 import cbl.readInfo.ReadSubmissionInfo;
 import cbl.readInfo.ReadTaskInfo;
@@ -67,6 +64,7 @@ public class Menu {
 
     public void mainMenu() throws IOException, ParseException, TaskAlreadyInProject, IllegalNumberOfTasks, ParticipantAlreadyInProject, IllegalNumberOfParticipantType, SubmissionsUpToDate {
         PortfolioImp portfolio = new PortfolioImp();
+        Evaluations evaluations= new Evaluations();
         boolean isRunning = true;
         while (isRunning) {
             displayMainMenu();
@@ -150,7 +148,7 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("Enter the name of the project you want to manage");
-                    projectMenu(edition.getProject(readString()), edition);
+                    projectMenu(edition.getProject(readString()), edition, evaluations);
                     break;
                 case 5:
                     System.out.println(tempEdition.getProgress());
@@ -189,11 +187,12 @@ public class Menu {
         System.out.println("\n| 5 - Get project progress                 |");
         System.out.println("\n| 6 - Get participant                      |");
         System.out.println("\n| 7 - Manage task                          |");
+        System.out.println("\n| 8 - Add Evaluation                       |");
         System.out.println("\n| 0 - Exit                                 |");
         System.out.println("\n--------------------------------------------");
     }
 
-    private void projectMenu(Project project, Edition edition) throws TaskAlreadyInProject, IllegalNumberOfTasks, IOException, ParticipantAlreadyInProject, IllegalNumberOfParticipantType {
+    private void projectMenu(Project project, Edition edition, Evaluations evaluations) throws TaskAlreadyInProject, IllegalNumberOfTasks, IOException, ParticipantAlreadyInProject, IllegalNumberOfParticipantType {
         boolean isRunning = true;
         while (isRunning) {
             displayProjectMenu();
@@ -236,6 +235,8 @@ public class Menu {
                     System.out.println("Enter the name of the task you want to manage for");
                     taskMenu(project.getTask(readString()));
                     break;
+                case 8:
+                    evaluations.addEvaluation();
                 case 0:
                     isRunning = false;
                     break;

@@ -27,7 +27,7 @@ public class ReadParticipantInfo {
      *
      * @return The participant email that was read from the keyboard.
      */
-    protected static String readEmail() {
+    public static String readEmail() {
         String email;
         do {
             try {

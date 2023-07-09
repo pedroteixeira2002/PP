@@ -37,7 +37,7 @@ public class Listings {
             Participant participant = participants[i];
             if (participant instanceof Student) {
                 Student student = (Student) participant;
-                Evaluation evaluation = student.getEvaluation(project);
+                EvaluationImp evaluation = getEvaluation(project);
                 double finalEvaluation = evaluation.calculateFinalEvaluation();
 
                 if (finalEvaluation > highestAppreciation) {
