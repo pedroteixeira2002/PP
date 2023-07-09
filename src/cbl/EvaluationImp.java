@@ -120,9 +120,9 @@ public class EvaluationImp implements Evaluation {
         return "\n--------- Evaluation ------------" +
                 "\n SelfGrade=" + selfGrade +
                 "\n PeerGrades=" + Arrays.toString(peerGrades) +
-                "\n Student=" + student +
-                "\n Email='" + email + '\'' +
-                "\n Project=" + project +
+                "\n Student=" + student.getName() +
+                "\n Email='" + email  +
+                "\n Project=" + project.getName() +
                 "\n FinalEvaluation=" + finalEvaluation;
     }
 }

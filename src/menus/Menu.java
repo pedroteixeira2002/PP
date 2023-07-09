@@ -96,13 +96,17 @@ public class Menu {
                     portfolio.editionsWithMissingSubmissions();
                     break;
                 case 6:
-                    System.out.println("There are " + portfolio.getNumberOfEditions() + "editions!");
+                    System.out.println("There are " + portfolio.getNumberOfEditions() + " editions!");
                     break;
                 case 7:
-                    exportMenu(portfolio);
+                    System.out.println("Enter the name of the edition you want to check");
+                    System.out.println("There are " + portfolio.numberOfDoneProjects(readString()) + "done projects!");
                     break;
                 case 8:
                     System.out.println(evaluations);
+                    break;
+                case 9:
+                    exportMenu(portfolio);
                     break;
                 case 0:
                     isRunning = false;
@@ -166,7 +170,7 @@ public class Menu {
                     break;
                 case 7:
                     System.out.println("Enter the name of the edition you want to check");
-                    ((PortfolioImp)portfolio).editionWithMissingSubmissionInProjects(readString());
+                    ((PortfolioImp) portfolio).editionWithMissingSubmissionInProjects(readString());
                     break;
                 case 8:
                     ((EditionImp) edition).listProjects();

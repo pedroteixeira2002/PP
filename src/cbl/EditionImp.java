@@ -193,7 +193,9 @@ public class EditionImp implements Edition {
         for (int i = index; i < numberOfProjects - 1; i++) {
             projects[i] = projects[i + 1];
         }
+        projects[numberOfProjects - 1] = null;
         System.out.println("Project removed with success");
+        numberOfProjects--;
     }
 
     /**

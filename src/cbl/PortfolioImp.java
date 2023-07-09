@@ -158,15 +158,6 @@ public class PortfolioImp implements Portfolio {
         return num;
     }
 
-
-    public String projectProgress(String editionName, String projectName) {
-        int pos = find(editionName);
-        Project project = this.editions[pos].getProject(projectName);
-        double percentage = (double) numberOfDoneTasks(editionName, projectName) / project.getNumberOfTasks() * 100;
-
-        return "The project is " + percentage + "% completed";
-    }
-
     /**
      * this method adds an edition to the portfolio
      *
@@ -203,32 +194,6 @@ public class PortfolioImp implements Portfolio {
         this.numberOfEditions--;
         System.out.println("Edition removed with success");
         return true;
-    }
-
-    private void activeEditionWithLateSubmissionsInProjects() throws SubmissionsUpToDate {
-        for (Edition edition : this.editions) {
-            if (edition.getStatus().equals(Status.ACTIVE)) {
-                for (Project project : edition.getProjects()) {
-                    if (project == null) {
-                        break;
-                    }
-                    for (Task task : project.getTasks()) {
-                        if (task == null) {
-                            break;
-                        }
-                        if (task.getNumberOfSubmissions() != project.getNumberOfStudents()) {
-                            System.out.println(project.getName() + " has late submissions");
-                            break;
-                        }
-                    }
-
-                }
-            }
-            if (edition == null) {
-                break;
-            }
-        }
-        throw new SubmissionsUpToDate("Active Edition has all submissions up to date");
     }
 
     /**

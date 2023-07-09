@@ -7,12 +7,9 @@
     <list default="true" id="699c11ea-c3ca-4bd6-83d4-b2d3c46b1df1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cbl/EditionImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/EditionImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/EvaluationImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/EvaluationImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/Listings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/Listings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cbl/PortfolioImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/PortfolioImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/ProjectImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/ProjectImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menus/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/participants/ParticipantImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participants/ParticipantImp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

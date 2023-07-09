@@ -466,6 +466,6 @@ public class ProjectImp implements Project {
                 "\n Partners: " + numberOfPartners + "\t Max. Partners: " + maximumNumberOfPartners +
                 "\n Facilitators: " + numberOfFacilitators + "\t Max. Facilitators: " + maximumNumberOfFacilitators +
                 "\n Tags: " + Arrays.toString(tags) +
-                "\n Participants: " + Arrays.toString(participants) + Arrays.toString(tasks);
+                "\n Participants: " + Arrays.toString(participants) /*+ Arrays.toString(tasks)*/;
     }
 }
