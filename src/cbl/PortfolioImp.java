@@ -17,6 +17,7 @@ public class PortfolioImp implements Portfolio {
     private static final int SIZE = 10;
     private Edition[] editions;
     private int numberOfEditions;
+    private int counter;
 
     /**
      * Constructor of class PortfolioImp
@@ -108,6 +109,80 @@ public class PortfolioImp implements Portfolio {
         }
         throw new IllegalArgumentException("Edition does not exist");
 
+    }
+
+    public int numberOfDoneTasks(String editionName, String projectName) {
+        int pos = find(editionName);
+        Project project = this.editions[pos].getProject(projectName);
+        Task[] tasks = project.getTasks();
+
+        int i = 0;
+        int num = 0;
+        while (i < project.getNumberOfTasks()) {
+            if (tasks[i].getNumberOfSubmissions() > 0) {
+                num++;
+            }
+            i++;
+        }
+
+        return num;
+    }
+
+    private int find(String editionName) {
+        if (editionName == null || editionName.isEmpty()) {
+            throw new IllegalArgumentException("msg");
+        }
+
+        int i = 0;
+        while (i < this.counter) {
+            if (editionName.equals(this.editions[i].getName())) {
+                return i;
+            }
+            i++;
+        }
+        throw new IllegalArgumentException("msg");
+    }
+
+    public int numberOfDoneProjects(String editionName) {
+        int pos = find(editionName);
+        Project[] projects = this.editions[pos].getProjects();
+
+        int i = 0;
+        int num = 0;
+        while (i < this.editions[pos].getNumberOfProjects()) {
+            if (projects[i].isCompleted()) {
+                num++;
+            }
+            i++;
+        }
+        return num;
+    }
+
+    public static Project getProjectWithMostStudents(Project[] projects) {
+        if (projects == null || projects.length == 0) {
+            return null;
+        }
+
+        Project projectWithMostStudents = null;
+        int maxStudents = -1;
+
+        for (Project project : projects) {
+            int numberOfStudents = project.getNumberOfStudents();
+            if (numberOfStudents > maxStudents) {
+                maxStudents = numberOfStudents;
+                projectWithMostStudents = project;
+            }
+        }
+
+        return projectWithMostStudents;
+    }
+
+    public String projectProgress(String editionName, String projectName) {
+        int pos = find(editionName);
+        Project project = this.editions[pos].getProject(projectName);
+        double percentage = (double) numberOfDoneTasks(editionName, projectName) / project.getNumberOfTasks() * 100;
+
+        return "The project is " + percentage + "% completed";
     }
 
     /**
