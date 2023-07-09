@@ -363,6 +363,9 @@ public class EditionImp implements Edition {
         int maxStudents = -1;
 
         for (Project project : projects) {
+            if (project == null)
+                break;
+
             int numberOfStudents = project.getNumberOfStudents();
             if (numberOfStudents > maxStudents) {
                 maxStudents = numberOfStudents;

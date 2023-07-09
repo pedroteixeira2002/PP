@@ -219,11 +219,13 @@ public class Menu {
                     System.out.println(Arrays.toString(temp));
                     break;
                 case 10:
-                    System.out.println("Enter the name of the participant you want to search for");
-                    edition.getProjectsOf(readString());
+                    System.out.println("Enter the email of the participant you want to search for");
+                    Project[] array = edition.getProjectsOf(readString());
+                    System.out.println(Arrays.toString(array));
                     break;
                 case 11:
-                    ((EditionImp) edition).getProjectWithMostStudents(edition.getProjects());
+                   Project project = ((EditionImp) edition).getProjectWithMostStudents(edition.getProjects());
+                    System.out.println(project.toString());
                     break;
                 case 0:
                     isRunning = false;

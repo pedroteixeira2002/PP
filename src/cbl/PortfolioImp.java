@@ -156,7 +156,7 @@ public class PortfolioImp implements Portfolio {
      */
     private int find(String editionName) {
         if (editionName == null || editionName.isEmpty()) {
-            throw new IllegalArgumentException("msg");
+            throw new IllegalArgumentException("Edition name is null or empty");
         }
 
         int i = 0;
@@ -166,7 +166,7 @@ public class PortfolioImp implements Portfolio {
             }
             i++;
         }
-        throw new IllegalArgumentException("msg");
+        throw new IllegalArgumentException("Edition does not exist");
     }
 
     /**
