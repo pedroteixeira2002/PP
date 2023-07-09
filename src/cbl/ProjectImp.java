@@ -1,3 +1,13 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package cbl;
 
 import ma02_resources.participants.Facilitator;
@@ -13,6 +23,9 @@ import ma02_resources.project.exceptions.TaskAlreadyInProject;
 
 import java.util.Arrays;
 
+/**
+ * this class implements the interface Project
+ */
 public class ProjectImp implements Project {
     private static final int FACTOR = 2;
     private final String name;
@@ -34,13 +47,13 @@ public class ProjectImp implements Project {
     /**
      * constructor of the class
      *
-     * @param name
-     * @param description
-     * @param maximumNumberOfTasks
-     * @param maximumNumberOfStudents
-     * @param maximumNumberOfPartners
-     * @param maximumNumberOfFacilitators
-     * @param tags
+     * @param name the name of the project
+     * @param description the description of the project
+     * @param maximumNumberOfTasks the maximum number of tasks
+     * @param maximumNumberOfStudents the maximum number of students
+     * @param maximumNumberOfPartners the maximum number of partners
+     * @param maximumNumberOfFacilitators the maximum number of facilitators
+     * @param tags the tags of the project
      */
     public ProjectImp(String name, String description, int maximumNumberOfTasks, int maximumNumberOfStudents, int maximumNumberOfPartners, int maximumNumberOfFacilitators, String[] tags) {
         this.name = name;
@@ -119,7 +132,7 @@ public class ProjectImp implements Project {
     /**
      * this method gets the number of tasks of the project
      *
-     * @return true if the participant was added, false otherwise
+     * @return the number of tasks of the project
      */
     @Override
     public int getNumberOfTasks() {
@@ -127,9 +140,9 @@ public class ProjectImp implements Project {
     }
 
     /**
-     * this method gets the number of tags of the project
+     * this method gets the maximum number of tasks of the project
      *
-     * @return the number of tags of the project
+     * @return the maximum number of tasks of the project
      */
     @Override
     public int getMaximumNumberOfTasks() {
@@ -139,7 +152,7 @@ public class ProjectImp implements Project {
     /**
      * this method gets the maximum number of participants of the project
      *
-     * @return the number of participants of the project
+     * @return the maximum number of participants of the project
      */
     @Override
     public long getMaximumNumberOfParticipants() {
@@ -147,9 +160,9 @@ public class ProjectImp implements Project {
     }
 
     /**
-     * this method gets the maximum number of tags of the project
+     * this method gets the maximum number of students of the project
      *
-     * @return the number of students of the project
+     * @return the maximum number of students of the project
      */
     @Override
     public int getMaximumNumberOfStudents() {
@@ -159,7 +172,7 @@ public class ProjectImp implements Project {
     /**
      * this method gets the maximum number of partners of the project
      *
-     * @return the number of partners of the project
+     * @return the maximum number of partners of the project
      */
     @Override
     public int getMaximumNumberOfPartners() {
@@ -169,7 +182,7 @@ public class ProjectImp implements Project {
     /**
      * this method gets the maximum number of facilitators of the project
      *
-     * @return the number of facilitators of the project
+     * @return the maximum number of facilitators of the project
      */
     @Override
     public int getMaximumNumberOfFacilitators() {
@@ -375,7 +388,7 @@ public class ProjectImp implements Project {
     }
 
     /**
-     * this method expand the tags
+     * this method expand the tasks of the project
      */
     private void expandTasks() {
         Task[] temp = new Task[this.tasks.length * FACTOR];
@@ -387,9 +400,8 @@ public class ProjectImp implements Project {
     }
 
     /**
-     * this method gets the number of tasks of the project
+     * this method add a task to the project
      *
-     * @return the number of tags of the project
      */
     @Override
     public void addTask(Task task) throws IllegalNumberOfTasks {
@@ -443,6 +455,9 @@ public class ProjectImp implements Project {
                 "\nThe project is: " + (completedTasks * 100) / numberOfTasks + "% completed");
     }
 
+    /**
+     * this method lists the tasks of the project
+     */
     public void listTasks() {
         for (Task task : this.tasks) {
             if (task == null)

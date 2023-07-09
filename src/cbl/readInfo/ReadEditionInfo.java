@@ -1,3 +1,14 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
+
 package cbl.readInfo;
 
 import cbl.EditionImp;
@@ -10,9 +21,15 @@ import java.util.Scanner;
 import static participants.readInfo.Utils.readLocalDate;
 import static participants.readInfo.Utils.readString;
 
-
+/**
+ *  class responsible for reading the information of an edition
+ */
 public class ReadEditionInfo {
 
+    /**
+     * method responsible for reading the information of an edition
+     * @return Edition
+     */
     public static Edition readEdition() {
         String name = readName();
         System.out.println("Enter the start date:\n");
@@ -31,6 +48,10 @@ public class ReadEditionInfo {
         return new EditionImp(name, startDate, endDate, projectTemplate);
     }
 
+    /**
+     * method responsible for reading the name of an edition
+     * @return name
+     */
     private static String readName() {
         String name;
         do {
@@ -45,6 +66,10 @@ public class ReadEditionInfo {
         return name;
     }
 
+    /**
+     * method responsible for reading the project template
+     * @return project template
+     */
     private static String readProjectTemplate() {
         String projectTemplate;
         do {
@@ -59,6 +84,10 @@ public class ReadEditionInfo {
         return projectTemplate;
     }
 
+    /**
+     * method responsible for choosing the project template
+     * @return project template
+     */
     private static String chooseTemplate() {
         Menu menu = new Menu();
         boolean isRunning = true;
@@ -78,6 +107,10 @@ public class ReadEditionInfo {
         return null;
     }
 
+    /**
+     * method responsible for getting the option
+     * @return option
+     */
     private static int getOption() {
         int option;
         Scanner scanner = new Scanner(System.in);

@@ -1,3 +1,14 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
+
 package cbl.readInfo;
 
 import cbl.TaskImp;
@@ -7,7 +18,16 @@ import java.time.LocalDate;
 
 import static participants.readInfo.Utils.*;
 
+/**
+ * This class is responsible for reading the information of a task.
+ */
 public class ReadTaskInfo {
+
+    /**
+     * This method reads the information of a task.
+     *
+     * @return The task that was read from the keyboard.
+     */
     public static Task readTask() {
         String title = readTitle();
         String description = readDescription();
@@ -22,6 +42,11 @@ public class ReadTaskInfo {
     }
 
 
+    /**
+     * This method returns the task duration.
+     *
+     * @return The task duration that was read from the keyboard.
+     */
     private static int readDuration() {
         int duration = 0;
         do {

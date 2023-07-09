@@ -1,3 +1,13 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package data_persistance;
 
 import cbl.PortfolioImp;
@@ -14,10 +24,18 @@ import ma02_resources.project.Task;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * class responsible for writing the data to a YAML file
+ */
 public class WriteYAML {
     public WriteYAML() {
     }
 
+    /**
+     * Method that writes the data to a YAML file
+     * @param portfolioTmp Portfolio to be written
+     * @throws IOException Exception thrown in case of an error
+     */
     public void writeYAML(PortfolioImp portfolioTmp) throws IOException {
         StringBuilder yamlData = new StringBuilder();
 

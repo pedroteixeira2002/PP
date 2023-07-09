@@ -1,3 +1,13 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package cbl;
 
 import Interfaces.Portfolio;
@@ -38,6 +48,7 @@ public class PortfolioImp implements Portfolio {
     }
 
     /**
+     * this method gets the editions in the portfolio
      * @return the editions in the portfolio
      */
     public Edition[] getEditions() {
@@ -45,6 +56,7 @@ public class PortfolioImp implements Portfolio {
     }
 
     /**
+     * this method gets the number of editions in the portfolio
      * @return the number of editions in the portfolio
      */
     public int getNumberOfEditions() {
@@ -71,6 +83,11 @@ public class PortfolioImp implements Portfolio {
         }
     }
 
+    /**
+     * this method find if there is an active edition
+     * @return the index of the active edition
+     * @throws NoActveEdition if there is no active edition
+     */
     private int findActiveEdition() throws NoActveEdition {
         int i = 0;
         while (i < this.numberOfEditions) {
@@ -111,6 +128,10 @@ public class PortfolioImp implements Portfolio {
 
     }
 
+    /**
+     * this method list the number of done tasks
+     * @return the number of done tasks
+     */
     public int numberOfDoneTasks(String editionName, String projectName) {
         int pos = find(editionName);
         Project project = this.editions[pos].getProject(projectName);
@@ -128,6 +149,11 @@ public class PortfolioImp implements Portfolio {
         return num;
     }
 
+    /**
+     * this method find the edition
+     * @param editionName the name of the edition
+     * @return the index of the edition
+     */
     private int find(String editionName) {
         if (editionName == null || editionName.isEmpty()) {
             throw new IllegalArgumentException("msg");
@@ -143,6 +169,11 @@ public class PortfolioImp implements Portfolio {
         throw new IllegalArgumentException("msg");
     }
 
+    /**
+     * this method list the number of done projects
+     * @param editionName the name of the edition
+     * @return the number of done projects
+     */
     public int numberOfDoneProjects(String editionName) {
         int pos = find(editionName);
         Project[] projects = this.editions[pos].getProjects();
@@ -161,7 +192,7 @@ public class PortfolioImp implements Portfolio {
     /**
      * this method adds an edition to the portfolio
      *
-     * @param edition
+     * @param edition the edition to be added
      */
     public void addEdition(Edition edition) {
         try {
@@ -210,6 +241,10 @@ public class PortfolioImp implements Portfolio {
         }
     }
 
+    /**
+     * this method checks if the edition has missing submissions
+     * @param editionName the name of the edition
+     */
     public void editionWithMissingSubmissionInProjects(String editionName) {
         Edition edition = getEdition(editionName);
         for (Project project : edition.getProjects()) {
@@ -233,7 +268,7 @@ public class PortfolioImp implements Portfolio {
     /**
      * this method checks the all missing submissions
      *
-     * @return the edition
+     * @return the edition with missing submissions
      * @throws SubmissionsUpToDate if all submissions are up-to-date
      */
     public void editionsWithMissingSubmissions() {

@@ -1,8 +1,26 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package cbl.readInfo;
 
 import static participants.readInfo.Utils.readString;
 
+/**
+ *  class responsible for reading the information of a project
+ */
 public class ReadProjectInfo {
+
+    /**
+     * method responsible for reading the information of a project
+     * @return description
+     */
     public static String readDescription() {
         String description = null;
         do {
@@ -16,6 +34,10 @@ public class ReadProjectInfo {
         return description;
     }
 
+    /**
+     * method responsible for reading the name of a project
+     * @return name
+     */
     public static String readName() {
         String name = null;
         do {
@@ -29,6 +51,10 @@ public class ReadProjectInfo {
         return name;
     }
 
+    /**
+     * method responsible for reading the tags of a project
+     * @return tags
+     */
     public static String[] readTags() {
 
         String[] tags = null;

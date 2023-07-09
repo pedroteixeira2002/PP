@@ -1,3 +1,14 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
+
 package cbl;
 
 
@@ -12,6 +23,9 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/**
+ * Class that tests the implementation of the project statically
+ */
 public class TEST {
     public static void main(String[] args) {
         EditionImp edition = new EditionImp("ED001", LocalDate.now(), LocalDate.of(2023, 12, 23), "json_files//project_template.json");

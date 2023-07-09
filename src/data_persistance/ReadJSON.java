@@ -1,3 +1,14 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
+
 package data_persistance;
 
 import cbl.TaskImp;
@@ -13,13 +24,23 @@ import java.io.IOException;
 import java.io.Reader;
 import java.time.LocalDate;
 
+/**
+ * Class that reads a JSON file and returns a Template object
+ */
 public class ReadJSON {
     private static ReadJSON instance;
 
+    /**
+     * Constructor of the class
+     */
     public ReadJSON() {
 
     }
 
+    /**
+     * Method that returns an instance of the class
+     * @return instance of the class
+     */
     public static ReadJSON getInstance() {
         if (instance == null) {
             instance = new ReadJSON();
@@ -27,7 +48,14 @@ public class ReadJSON {
         return instance;
     }
 
-
+    /**
+     * Method that reads a JSON file and returns a Template object
+     * @param editionStart start date of the edition
+     * @param path path of the JSON file
+     * @return Template object
+     * @throws IOException if the file is not found
+     * @throws java.text.ParseException if the file is not found
+     */
     public Template readTemplate(LocalDate editionStart, String path) throws IOException, java.text.ParseException {
 
 

@@ -77,7 +77,7 @@ public class EditionImp implements Edition {
     }
 
     /**
-     * this name gets the start date of the edition
+     * this method gets the start date of the edition
      *
      * @return the start date of the edition
      */
@@ -151,6 +151,12 @@ public class EditionImp implements Edition {
         return -1;
     }
 
+    /**
+     * this method adds a project to the edition
+     *
+     * @param name the name of the project
+     * @return the project
+     */
     @Override
     public void addProject(String name, String description, String[] tags) throws IOException, ParseException {
         if (name == null || description == null || tags == null || tags.length == 0)
@@ -213,7 +219,7 @@ public class EditionImp implements Edition {
     /**
      * this method gets the number of projects
      *
-     * @return
+     * @return the number of projects
      */
     @Override
     public Project[] getProjects() {
@@ -221,7 +227,7 @@ public class EditionImp implements Edition {
     }
 
     /**
-     * this method gets the project
+     * this method gets the project by name
      */
     @Override
     public Project getProject(String s) {
@@ -312,6 +318,11 @@ public class EditionImp implements Edition {
                 "\nThe Edition is: " + (completedTasks * 100) / countTasks + "% completed");
     }
 
+    /**
+     * this method lists the number of projects
+     *
+     * @return the number of projects
+     */
     public void listProjects() {
         for (Project project : this.projects) {
             if (project == null)
@@ -336,6 +347,13 @@ public class EditionImp implements Edition {
                 "\n Projects: " + Arrays.toString(projects) +
                 "\n---------------------------------------------";
     }
+
+    /**
+     * this method gets the project with most students
+     *
+     * @param projects the projects
+     * @return the index of a project
+     */
     public static Project getProjectWithMostStudents(Project[] projects) {
         if (projects == null || projects.length == 0) {
             return null;

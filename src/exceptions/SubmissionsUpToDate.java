@@ -11,7 +11,7 @@
 package exceptions;
 
 /**
- * this exception is thrown when a submission is up to date
+ * this exception is thrown when a submission is up-to-date
  */
 public class SubmissionsUpToDate extends Exception{
     public SubmissionsUpToDate(String message) {

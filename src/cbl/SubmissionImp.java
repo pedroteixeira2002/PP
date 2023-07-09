@@ -1,3 +1,13 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package cbl;
 
 import ma02_resources.participants.Student;
@@ -5,6 +15,9 @@ import ma02_resources.project.Submission;
 
 import java.time.LocalDateTime;
 
+/**
+ * this class represents a submission.
+ */
 public class SubmissionImp implements Submission {
     private LocalDateTime date;
     private Student student;

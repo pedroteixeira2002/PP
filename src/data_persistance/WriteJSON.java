@@ -1,3 +1,13 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package data_persistance;
 
 import Interfaces.Portfolio;
@@ -21,10 +31,18 @@ import org.json.simple.JSONObject;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Class responsible for writing the data to a JSON file
+ */
 public class WriteJSON {
     public WriteJSON() {
     }
 
+    /**
+     * Method that writes the data to a JSON file
+     * @param portfolioTmp Portfolio to be written
+     * @throws IOException Exception thrown in case of an error
+     */
     public void writeJSON(PortfolioImp portfolioTmp) throws IOException {
 
         JSONObject jsonObject = new JSONObject();

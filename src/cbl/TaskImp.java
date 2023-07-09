@@ -1,3 +1,14 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
+
 package cbl;
 
 import ma02_resources.participants.Student;
@@ -10,6 +21,9 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * this class represents a task
+ */
 public class TaskImp implements Task {
     private static int SIZE = 10;
     private final int FACTOR = 2;
@@ -42,6 +56,14 @@ public class TaskImp implements Task {
         this.numberOfSubmissions = 0;
     }
 
+    /**
+     * other constructor of the class
+     * @param title the title of the task
+     * @param description the description of the task
+     * @param start the start date of the task
+     * @param end the end date of the task
+     * @param duration the duration of the task
+     */
     public TaskImp(String title, String description, LocalDate start, LocalDate end, int duration) {
         this.title = title;
         this.description = description;
@@ -105,9 +127,9 @@ public class TaskImp implements Task {
     }
 
     /**
-     * this method return the submission of the task
+     * this method return the submissions of the task
      *
-     * @return the submission of the task
+     * @return the submissions of the task
      */
     @Override
     public Submission[] getSubmissions() {
@@ -180,7 +202,7 @@ public class TaskImp implements Task {
     }
 
     /**
-     * this method return the extenddeadline of the task
+     * this method return the extenddead line of the task
      *
      * @return the extenddeadline of the task
      */
@@ -193,6 +215,9 @@ public class TaskImp implements Task {
         }
     }
 
+    /**
+     * this method lists the submissions of the task
+     */
     public void listSubmissions(){
         for(Submission submission : this.submissions){
             if (submission == null)
