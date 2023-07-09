@@ -53,9 +53,13 @@ public class EvaluationImp implements Evaluation {
         return project;
     }
 
-    public EvaluationImp readEvaluationInfo(Project project) throws IOException {
+    public static EvaluationImp readEvaluationInfo(Project project) throws IOException {
         double[] peerGrades;
-        String email = readEmail();
+
+        System.out.println("Enter your email: ");
+        String email = Utils.readString();
+        Participant participant = project.getParticipant(email);
+
         double selfGrade = selfEvaluation(project);
         peerGrades = peerEvaluation(project);
 
@@ -69,21 +73,15 @@ public class EvaluationImp implements Evaluation {
      * @param project the project to evaluate
      * @throws IOException
      */
-    public double selfEvaluation(Project project) throws IOException {
-        System.out.println("Enter your email: ");
-        String email = Utils.readString();
-        Participant participant = project.getParticipant(email);
+    public static double selfEvaluation(Project project) throws IOException {
 
-        if (participant instanceof Student) {
-            for (Participant p : ((ProjectImp) project).getParticipants()) {
-                if (p == null)
-                    break;
-                if (p instanceof Student && p.getEmail().equals(email)) {
-                    System.out.println("Enter your self evaluation: ");
-                    double grade = readDouble();
-                    return grade;
-                }
-            }
+        for (Participant p : ((ProjectImp) project).getParticipants()) {
+            if (p == null)
+                break;
+
+            System.out.println("Enter the self evaluation: ");
+            double grade = readDouble();
+            return grade;
         }
         throw new IOException("Only students can evaluate themselves");
     }
@@ -94,21 +92,12 @@ public class EvaluationImp implements Evaluation {
      * @param project the project to evaluate
      * @throws IOException if an error occurs while reading the participant
      */
-    public double[] peerEvaluation(Project project) throws IOException {
+    public static double[] peerEvaluation(Project project) throws IOException {
         double[] tempGrades = new double[TEAM_SIZE];
-        System.out.println("Enter your email: ");
-        String email = Utils.readString();
-        Participant participant = project.getParticipant(email);
 
-        System.out.println("Enter the email of your team mate: ");
-        String emailTeam = Utils.readString();
-        Participant participantToEvaluate = project.getParticipant(emailTeam);
-
-        if (participant instanceof Student && participantToEvaluate instanceof Student) {
-            for (int i = 0; i < tempGrades.length; i++) {
-                System.out.println("Student" + (i + 1) + ": Enter the classification: ");
-                tempGrades[i] = readDouble();
-            }
+        for (int i = 0; i < tempGrades.length; i++) {
+            System.out.println("Student" + (i + 1) + ": Enter the classification: ");
+            tempGrades[i] = readDouble();
         }
         return tempGrades;
     }

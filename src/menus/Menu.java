@@ -27,6 +27,7 @@ import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static cbl.EvaluationImp.readEvaluationInfo;
 import static cbl.readInfo.ReadEditionInfo.readEdition;
 import static participants.readInfo.Utils.readInt;
 import static participants.readInfo.Utils.readString;
@@ -87,7 +88,7 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("Enter the name of the edition you want to manipulate");
-                    editionMenu(portfolio.getEdition(readString()), portfolio);
+                    editionMenu(portfolio.getEdition(readString()), portfolio, evaluations);
                     break;
                 case 5:
                     portfolio.editionsWithMissingSubmissions();
@@ -123,7 +124,7 @@ public class Menu {
         System.out.println("\n----------------------------------------------");
     }
 
-    private void editionMenu(Edition edition, Portfolio portfolio) throws IOException, ParseException, TaskAlreadyInProject, IllegalNumberOfTasks, ParticipantAlreadyInProject, IllegalNumberOfParticipantType {
+    private void editionMenu(Edition edition, Portfolio portfolio, Evaluations evaluations) throws IOException, ParseException, TaskAlreadyInProject, IllegalNumberOfTasks, ParticipantAlreadyInProject, IllegalNumberOfParticipantType {
         EditionImp tempEdition = (EditionImp) edition;
 
         boolean isRunning = true;
@@ -132,7 +133,7 @@ public class Menu {
             int option = getOption();
             switch (option) {
                 case 1:
-                    ((PortfolioImp) portfolio).setAllToInactive();
+                    ((PortfolioImp) portfolio).setAllToClosed();
                     edition.setStatus(Status.ACTIVE);
                     System.out.println("Edition set as active");
                     break;
@@ -236,7 +237,7 @@ public class Menu {
                     taskMenu(project.getTask(readString()));
                     break;
                 case 8:
-                    evaluations.addEvaluation();
+                    evaluations.addEvaluation(readEvaluationInfo(project));
                 case 0:
                     isRunning = false;
                     break;

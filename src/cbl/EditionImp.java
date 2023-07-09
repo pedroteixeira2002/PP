@@ -235,9 +235,13 @@ public class EditionImp implements Edition {
         for (Project project : projects) {
             if (project == null)
                 break;
-            if (project.getTags().equals(s)) ;
-            array[index] = project;
-            index++;
+            for (String tag : project.getTags()) {
+                if (tag == null)
+                    break;
+                if (tag.equals(s))
+                    array[index] = project;
+                index++;
+            }
         }
         return array;
     }
@@ -292,13 +296,14 @@ public class EditionImp implements Edition {
                 "\nThe Edition is: " + (completedTasks * 100) / countTasks + "% completed");
     }
 
-    public void listProjects(){
+    public void listProjects() {
         for (Project project : this.projects) {
             if (project == null)
                 break;
             System.out.println(project);
         }
     }
+
     /**
      * this method gives the information of the edition
      *

@@ -10,7 +10,9 @@ import java.util.Scanner;
 import static participants.readInfo.Utils.readLocalDate;
 import static participants.readInfo.Utils.readString;
 
+
 public class ReadEditionInfo {
+
     public static Edition readEdition() {
         String name = readName();
         System.out.println("Enter the start date:\n");

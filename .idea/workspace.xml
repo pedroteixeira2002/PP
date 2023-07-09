@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="699c11ea-c3ca-4bd6-83d4-b2d3c46b1df1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/Evaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/Evaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/EditionImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/EditionImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cbl/EvaluationImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/EvaluationImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/Listings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/Listings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/PortfolioImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/PortfolioImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cbl/readInfo/ReadEditionInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/participants/ParticipantImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participants/ParticipantImp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +139,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="ma02_resources.project.exceptions.ParticipantAlreadyInProject" package="ma02_resources.project.exceptions" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

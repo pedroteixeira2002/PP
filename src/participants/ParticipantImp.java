@@ -4,6 +4,8 @@ import ma02_resources.participants.Contact;
 import ma02_resources.participants.Instituition;
 import ma02_resources.participants.Participant;
 
+import java.util.Objects;
+
 public abstract class ParticipantImp implements Participant {
 
     private final String name;
@@ -103,6 +105,16 @@ public abstract class ParticipantImp implements Participant {
      */
     @Override
     public boolean equals(Object participant) {
-        return true;
+        if (this == participant) {
+            return true;
+        }
+        if (participant == null) {
+            return false;
+        }
+        if (!(participant instanceof ParticipantImp)) {
+            return false;
+        }
+        final ParticipantImp other = (ParticipantImp) participant;
+        return Objects.equals(this.email, other.email);
     }
 }
