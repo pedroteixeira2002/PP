@@ -1,9 +1,22 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package participants;
 
 import ma02_resources.participants.Contact;
 import ma02_resources.participants.Facilitator;
 import ma02_resources.participants.Instituition;
 
+/**
+ * This class represents a facilitator.
+ */
 public class FacilitatorImp extends ParticipantImp implements Facilitator {
     private String areaOfExpertise;
 

@@ -1,3 +1,13 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package menus;
 
 import Interfaces.Portfolio;
@@ -32,7 +42,9 @@ import static cbl.readInfo.ReadEditionInfo.readEdition;
 import static participants.readInfo.Utils.readInt;
 import static participants.readInfo.Utils.readString;
 
-
+/**
+ * this class is responsible for displaying the menu
+ */
 public class Menu {
     /**
      * this method is responsible for getting the option chosen by the user
@@ -65,6 +77,16 @@ public class Menu {
     }
 
 
+    /**
+     * this method is responsible for displaying the main menu of the edition
+     * @throws IOException
+     * @throws ParseException
+     * @throws TaskAlreadyInProject
+     * @throws IllegalNumberOfTasks
+     * @throws ParticipantAlreadyInProject
+     * @throws IllegalNumberOfParticipantType
+     * @throws SubmissionsUpToDate
+     */
     public void mainMenu() throws IOException, ParseException, TaskAlreadyInProject, IllegalNumberOfTasks, ParticipantAlreadyInProject, IllegalNumberOfParticipantType, SubmissionsUpToDate {
         PortfolioImp portfolio = new PortfolioImp();
         Evaluations evaluations = new Evaluations();
@@ -118,6 +140,9 @@ public class Menu {
         }
     }
 
+    /**
+     * this method is responsible for displaying the edition menu
+     */
     private void displayEditionMenu() {
         System.out.println("\n_______Welcome_to_the_Edition_Manager_Menu____");
         System.out.println("\n| 1 - Set Edition as Active                  |");
@@ -135,6 +160,19 @@ public class Menu {
         System.out.println("\n----------------------------------------------");
     }
 
+    /**
+     * this method is responsible for displaying the edition menu
+     * @param edition the edition to be manipulated
+     * @param portfolio the portfolio to be manipulated
+     * @param evaluations the evaluations to be manipulated
+     * @throws IOException
+     * @throws ParseException
+     * @throws TaskAlreadyInProject
+     * @throws IllegalNumberOfTasks
+     * @throws ParticipantAlreadyInProject
+     * @throws IllegalNumberOfParticipantType
+     * @throws SubmissionsUpToDate
+     */
     private void editionMenu(Edition edition, Portfolio portfolio, Evaluations evaluations) throws IOException, ParseException, TaskAlreadyInProject, IllegalNumberOfTasks, ParticipantAlreadyInProject, IllegalNumberOfParticipantType, SubmissionsUpToDate {
         EditionImp tempEdition = (EditionImp) edition;
 
@@ -196,6 +234,9 @@ public class Menu {
         }
     }
 
+    /**
+     * this method is responsible for displaying the project menu
+     */
     private void displayProjectMenu() {
         System.out.println("\n____Welcome_to_the_Project_Manager_Menu____");
         System.out.println("\n| 1 - Add Participant to Project           |");
@@ -210,6 +251,17 @@ public class Menu {
         System.out.println("\n--------------------------------------------");
     }
 
+    /**
+     * this method is responsible for displaying the project menu
+     * @param project the project to be manipulated
+     * @param edition the edition to be manipulated
+     * @param evaluations the evaluations to be manipulated
+     * @throws TaskAlreadyInProject
+     * @throws IllegalNumberOfTasks
+     * @throws IOException
+     * @throws ParticipantAlreadyInProject
+     * @throws IllegalNumberOfParticipantType
+     */
     private void projectMenu(Project project, Edition edition, Evaluations evaluations) throws TaskAlreadyInProject, IllegalNumberOfTasks, IOException, ParticipantAlreadyInProject, IllegalNumberOfParticipantType {
         boolean isRunning = true;
         while (isRunning) {
@@ -264,6 +316,10 @@ public class Menu {
         }
     }
 
+    /**
+     * this method is responsible for displaying the participant select menu
+     * @return null if the option is invalid
+     */
     private Participant participantSelect() {
         System.out.println("\n Which type of participant do you want to select?");
         System.out.println("\n  1 - Student");
@@ -286,6 +342,9 @@ public class Menu {
         return null;
     }
 
+    /**
+     * this method is responsible for displaying the task menu
+     */
     private void displayTask() {
         System.out.println("\n____Welcome_to_the_Task_Manager_Menu_____");
         System.out.println("\n| 1 - Add submission                     |");
@@ -296,6 +355,10 @@ public class Menu {
         System.out.println("\n------------------------------------------");
     }
 
+    /**
+     * this method is responsible for displaying the task menu
+     * @param task the task to be manipulated
+     */
     private void taskMenu(Task task) {
         boolean isRunning = true;
         while (isRunning) {
@@ -324,6 +387,9 @@ public class Menu {
         }
     }
 
+    /**
+     * this method is responsible for displaying the export menu
+     */
     private void displayExportMenu() {
         System.out.println("\n____Welcome_to_the_Export_Menu_____");
         System.out.println("\n| 1 - Export to JSON               |");
@@ -333,6 +399,11 @@ public class Menu {
         System.out.println("\n------------------------------------");
     }
 
+    /**
+     * this method is responsible for displaying the export menu
+     * @param portfolio the portfolio to be manipulated
+     * @throws IOException if the file is not found
+     */
     private void exportMenu(PortfolioImp portfolio) throws IOException {
         WriteJSON json = new WriteJSON();
         WriteYAML yaml = new WriteYAML();
@@ -361,6 +432,9 @@ public class Menu {
         }
     }
 
+    /**
+     * this method is responsible for displaying the choose template menu
+     */
     public void displayChooseTemplate() {
         System.out.println("\n____Welcome_to_the_Template_Menu_____");
         System.out.println("\n| 1 - Provided Template             |");
@@ -368,7 +442,9 @@ public class Menu {
         System.out.println("\n------------------------------------");
     }
 
-
+    /**
+     * this method is responsible for displaying the evaluation menu
+     */
     public void displayEvaluation() {
         System.out.println("\n____Welcome_to_the_Evaluation_Menu_______");
         System.out.println("\n| 1 - Evaluate Teammate                  |");

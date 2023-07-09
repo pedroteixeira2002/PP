@@ -1,3 +1,13 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package participants;
 
 import ma02_resources.participants.Contact;
@@ -5,6 +15,9 @@ import ma02_resources.participants.Instituition;
 import ma02_resources.participants.InstituitionType;
 import ma02_resources.participants.Participant;
 
+/**
+ * This class represents a test class about the participants.
+ */
 public class TEST {
     public static void main(String[] args) {
 

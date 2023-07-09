@@ -1,3 +1,13 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package participants;
 
 import ma02_resources.participants.Contact;
@@ -6,6 +16,9 @@ import ma02_resources.participants.Participant;
 
 import java.util.Objects;
 
+/**
+ * This class represents a participant.
+ */
 public abstract class ParticipantImp implements Participant {
 
     private final String name;

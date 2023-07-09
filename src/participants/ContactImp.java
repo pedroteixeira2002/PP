@@ -1,7 +1,20 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package participants;
 
 import ma02_resources.participants.Contact;
 
+/**
+ * This class represents a contact of a participant.
+ */
 public class ContactImp implements Contact {
     private final String street;
     private final String city;

@@ -1,3 +1,13 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package participants.readInfo;
 
 import java.io.IOException;
@@ -5,6 +15,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
+/**
+ * This class contains methods that read information from the keyboard.
+ */
 public class Utils {
     /**
      * This method returns a string that is read from the keyboard.

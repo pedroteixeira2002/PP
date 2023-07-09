@@ -1,3 +1,13 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package participants.readInfo;
 
 import ma02_resources.participants.Contact;
@@ -41,6 +51,10 @@ public class ReadInstitutionInfo {
         return name;
     }
 
+    /**
+     * this method reads the email from the keyboard about the institution.
+     * @return The institution email that was read from the keyboard.
+     */
     private static String readEmail() {
         String email;
         do {
@@ -55,6 +69,10 @@ public class ReadInstitutionInfo {
         return email;
     }
 
+    /**
+     * This method returns the institution's description.
+     * @return The institution description that was read from the keyboard.
+     */
     private static String readDescription() {
         String description;
         do {
@@ -87,6 +105,10 @@ public class ReadInstitutionInfo {
         return website;
     }
 
+    /**
+     * This method returns the institution's type.
+     * @return The institution type that was read from the keyboard.
+     */
     private static InstituitionType readInstitutionType() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the institution type:\n" +

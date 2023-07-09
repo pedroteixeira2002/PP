@@ -1,3 +1,13 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package participants.readInfo;
 
 import ma02_resources.participants.Contact;
@@ -7,6 +17,9 @@ import java.io.IOException;
 
 import static participants.readInfo.Utils.readString;
 
+/**
+ * This class reads the contact information
+ */
 public class ReadContactInfo {
     /**
      * Reads all elements of a contacts
@@ -81,7 +94,7 @@ public class ReadContactInfo {
     }
 
     /**
-     * This method returns a Contact that is read from the keyboard.
+     * This method returns the contact's zip code.
      *
      * @return The Contact that was read from the keyboard.
      */

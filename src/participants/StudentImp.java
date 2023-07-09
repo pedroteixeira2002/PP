@@ -1,9 +1,22 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package participants;
 
 import ma02_resources.participants.Contact;
 import ma02_resources.participants.Instituition;
 import ma02_resources.participants.Student;
 
+/**
+ * This class represents a student.
+ */
 public class StudentImp extends ParticipantImp implements Student {
     private final int number;
 
@@ -69,9 +82,7 @@ public class StudentImp extends ParticipantImp implements Student {
     }
 
     /**
-     * toString method
-     *
-     * @param
+     * this method returns the information of the student.
      */
     @Override
     public String toString() {

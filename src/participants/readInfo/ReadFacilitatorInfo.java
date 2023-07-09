@@ -1,3 +1,13 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package participants.readInfo;
 
 import ma02_resources.participants.Contact;
@@ -11,6 +21,9 @@ import static participants.readInfo.ReadParticipantInfo.readEmail;
 import static participants.readInfo.ReadParticipantInfo.readName;
 import static participants.readInfo.Utils.readString;
 
+/**
+ * This class reads the facilitator's information.
+ */
 public class ReadFacilitatorInfo {
     /**
      * This method reads the facilitator's information.

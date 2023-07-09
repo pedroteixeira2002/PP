@@ -1,7 +1,20 @@
+/*
+ * Nome: João Pedro Ferreira Teixeira
+ * Número: 8200489
+ * Turma: LEI12T3
+ *
+ * Nome: Rómulo César Marinho Leite
+ * Número: 8200593
+ * Turma: LEI12T2
+ */
+
 package participants.readInfo;
 
 import static participants.readInfo.Utils.readString;
 
+/**
+ * This class is used to read the participant information from the keyboard.
+ */
 public class ReadParticipantInfo {
     /**
      * This method returns the participant name.
