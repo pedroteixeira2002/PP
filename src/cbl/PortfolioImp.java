@@ -210,7 +210,7 @@ public class PortfolioImp implements Portfolio {
         }
     }
 
-    public void editionWithMissingSubmissionInProjects(String editionName) throws SubmissionsUpToDate {
+    public void editionWithMissingSubmissionInProjects(String editionName) {
         Edition edition = getEdition(editionName);
         for (Project project : edition.getProjects()) {
             if (project == null) {
@@ -226,7 +226,7 @@ public class PortfolioImp implements Portfolio {
                 }
             }
         }
-        throw new SubmissionsUpToDate("All submissions are up to date");
+        System.out.println("All submissions are up to date");
 
     }
 
@@ -236,7 +236,7 @@ public class PortfolioImp implements Portfolio {
      * @return the edition
      * @throws SubmissionsUpToDate if all submissions are up-to-date
      */
-    public void editionsWithMissingSubmissions() throws SubmissionsUpToDate {
+    public void editionsWithMissingSubmissions() {
         for (Edition edition : this.editions) {
             if (edition == null) {
                 break;
@@ -255,6 +255,6 @@ public class PortfolioImp implements Portfolio {
                 }
             }
         }
-        throw new SubmissionsUpToDate("All submissions are up to date");
+        System.out.println("All submissions are up to date");
     }
 }
